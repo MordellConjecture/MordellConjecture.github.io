@@ -1,6 +1,0 @@
-remote_theme: mmistakes/minimal-mistakes@4.24.0
-plugins:
-- jekyll-remote-theme
-- jekyll-include-cache
-title: The Mordell conjecture 100 years later
-description: This celebration of a century of mathematics inspired by Mordell's conjecture will take place July 8-12, 2024 at the Massachusetts Institute of Technology
