@@ -1,2 +1,2 @@
-# MordellConjecture.github.io
-Web site for The Mordell conjecture 100 years later, currently under construction
+# The Mordell conjecture 100 years later
+Web site currently under construction
