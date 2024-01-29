@@ -1,1 +1,1 @@
-This repository hosts the website for the conference **The Mordell conjecture 100 years later**, organized by Jennifer Balakrishnan, Philipp Habegger, Bjorn Poonen, Andrew Sutherland, and Wei Zhang.  Please visit the [website](https://mordell.org) for information about the conference.
+This repository hosts the website for the conference **The Mordell conjecture 100 years later**, organized by Jennifer Balakrishnan, Philipp Habegger, Bjorn Poonen, Andrew Sutherland, and Wei Zhang.  Please visit the [website](https://mordell.org) for information about this conference.
