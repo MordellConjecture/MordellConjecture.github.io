@@ -14,6 +14,21 @@ a { color: inherit; text-decoration: underline; text-decoration-thickness:
 0.75px; text-decoration-color: DimGray; }
 td { font-size: larger; }
 body { margin: auto; max-width: 800px;}
+.mobile-div {
+  display:none;
+}
+.desktop-div {
+  display:block;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-div {
+    display:block;
+  }
+  .desktop-div {
+    display:none;
+  }
+}
 </style>
 </head>
 <body>
@@ -21,6 +36,7 @@ body { margin: auto; max-width: 800px;}
 <h1>The Mordell conjecture 100 years later</h1>
 <h2>July 8-12, 2024</h2>
 <h3><a href="https://math.mit.edu/">Massachusetts Institute of Technology</a>, Cambridge, Massachusetts, USA</h3>
+<div class="desktop-div">
 <table class="table table-noborder">
 <tr><td>
 <img src="mordell1.png" alt="Image" width=100%>
@@ -44,7 +60,32 @@ body { margin: auto; max-width: 800px;}
 	<li><a href="https://www.sns.it/en/persona/umberto-zannier">Umberto Zannier</a></li>
 </ul></td></tr></table>
 </center>
-
+</div>
+<div class="mobile-div">
+<img src="mordell1.png" alt="Image" width=100%>
+<table class="table table-noborder">
+<tr><td>
+</td><td width=100%>
+<ul style="margin: 10px 0px 20px 20px;">
+	<li><a href="https://people.math.harvard.edu/~alpoge/">Levent Alpöge</a></li>
+	<li><a href="https://www.mpim-bonn.mpg.de/node/102">Gerd Faltings</a></li>
+	<li><a href="https://www.iazd.uni-hannover.de/en/gao">Ziyang Gao</a></li>
+	<li><a href="https://www.maths.ox.ac.uk/people/ehud.hrushovski">Ehud Hrushovski</a></li>
+	<li><a href="https://www.minhyongkim.net/">Minhyong Kim</a></li>
+	<li><a href="https://sites.google.com/view/larskuehne">Lars Kühne</a></li>
+	<li><a href="https://sites.google.com/view/nicole-looper">Nicole Looper</a></li>
+    <li><a href="https://www.mat.uc.cl/~hector.pasten/">Hector Pasten</a></li>
+	<li><a href="https://webspace.science.uu.nl/~piero001/">Marta Pieropan</a></li>
+	<li><a href="https://sites.google.com/site/damarishomepage/">Damaris Schindler</a></li>
+	<li><a href="https://www.mathe2.uni-bayreuth.de/stoll/">Michael Stoll</a></li>
+	<li><a href="https://www.uni-math.gwdg.de/viada/">Evelina Viada</a></li>
+	<li><a href="https://sites.math.washington.edu//~bviray/">Bianca Viray</a></li>
+	<li><a href="https://www.math.canterbury.ac.nz/~f.voloch/">José Felipe Voloch</a></li>
+	<li><a href="http://faculty.bicmr.pku.edu.cn/~yxy/">Xinyi Yuan</a></li>
+	<li><a href="https://www.sns.it/en/persona/umberto-zannier">Umberto Zannier</a></li>
+</ul></td></tr></table>
+</center>
+</div>
 <p>
 Registration is free, but required.
 <ul>
