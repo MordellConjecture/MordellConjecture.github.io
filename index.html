@@ -7,43 +7,54 @@
 <meta name="keywords" content="HTML">
 <meta charset="UTF-8">
 <style>
-html { background: linear-gradient(to bottom left, #F8D1AA 0%, #89BBD9 100%); font-size:larger; font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans serif; color: #002040; min-height: 100%; background-size: cover; background-repeat: no-repeat; }
+html { background: linear-gradient(to bottom left, #F8D1AA 0%, #89BBD9 100%); font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans serif; color: #002040; min-height: 100%; background-size: cover; background-repeat: no-repeat; }
 li:not(:last-child) { margin-bottom: 8px; }
-h1 { margin-top:30px; }
-a { color: inherit; text-decoration: underline; text-decoration-thickness:0.75px; text-decoration-color: DimGray; white-space:nowrap; }
-td { font-size: larger; }
+h1 { margin-top:30px; text-align: center; }
+h2 { text-align: center; }
+h3 { text-align: center; }
+a { color: inherit; text-decoration: underline; text-decoration-thickness: 0.75px; text-decoration-color: DimGray; white-space: nowrap; }
 body { margin: auto; max-width: 800px;}
-.mobile-div {
-  display:none;
-}
-.desktop-div {
-  display:block;
-}
-.nowrap {
-	white-space:nowrap;
-}
+.mobile-div { display: none; }
+.desktop-div { display: block; }
+.nowrap { white-space: nowrap; }
+.talk { cursor: pointer; font-style: italic;}
+.lt { cursor: pointer; }
+.lts { cursor: pointer; font-size: smaller; }
+.hidden { display: none; }
+.abstract { width: 100%; font-size: smaller; font-style: normal; margin: 0px; padding: 0px; padding-top:5px; cursor: pointer; }
+tr.day { margin-top: 15px !important; }
+td.day { border-top: 1.5px solid #333; padding-top: 7px !important; }
+table.schedule { width: 100%; }
+table.schedule td { padding: 0px 6px 4px; vertical-align: text-top; }
+table.schedule tr { width: 100%; }
+table.schedule a { text-decoration: none; }
 
 @media screen and (max-width: 768px) {
   .mobile-div {
-    display:block;
+  	width: 100%;
+    display: block;
   }
   .desktop-div {
-    display:none;
+  	width: 100%;
+    display: none;
   }
 }
 </style>
+<script>
+function tog(id) { e = document.getElementById(id); e.classList.toggle('hidden'); }
+function togs(c) { var es = document.getElementsByClassName(c), len = es ? es.length : 0, i = 0; for ( i ; i < len ; i++ ) { es[i].classList.toggle('hidden'); } }
+</script>
 </head>
 <body>
-<center>
 <h1>The Mordell conjecture 100 years later</h1>
 <h2>July 8-12, 2024</h2>
 <h3><a href="https://math.mit.edu/">Massachusetts Institute of Technology</a>, Cambridge, Massachusetts, USA</h3>
 <div class="desktop-div">
-<table class="table table-noborder">
+<table>
 <tr><td>
 <img src="mordell1.png" alt="Image" width=100%>
 </td><td width=30%>
-<ul style="margin: 10px 0px 20px 20px;">
+<ul style="margin: 10px 0px 20px 20px; font-size:larger;">
 	<li><a href="https://people.math.harvard.edu/~alpoge/">Levent Alpöge</a></li>
 	<li><a href="https://lalexanderbetts.net/">Alexander Betts</a></li>
 	<li><a href="https://www.mpim-bonn.mpg.de/node/102">Gerd Faltings</a></li>
@@ -62,14 +73,13 @@ body { margin: auto; max-width: 800px;}
 	<li><a href="https://www.sns.it/en/persona/umberto-zannier">Umberto Zannier</a></li>
 </ul></td></tr></table>
 </div>
-
 <div class="mobile-div">
 <img src="mordell1.png" alt="Image" width=100%>
 <br>
-<table class="table table-noborder">
+<table>
 <tr><td>
 </td><td>
-<ul style="margin: 20px 20px 20px 0px;">
+<ul style="margin: 20px 20px 20px 0px; font-size:larger;">
 	<li><a href="https://people.math.harvard.edu/~alpoge/">Levent Alpöge</a></li>
 	<li><a href="https://www.mpim-bonn.mpg.de/node/102">Gerd Faltings</a></li>
 	<li><a href="https://www.iazd.uni-hannover.de/en/gao">Ziyang Gao</a></li>
@@ -88,8 +98,6 @@ body { margin: auto; max-width: 800px;}
 	<li><a href="https://www.sns.it/en/persona/umberto-zannier">Umberto Zannier</a></li>
 </ul></td></tr></table>
 </div>
-</center>
-<div style="margin: 10px;">
 <p>
 Registration is free, but required.
 </p>
@@ -111,26 +119,259 @@ If funding your own stay, please use either of the two options above.
 <p>
 <b>Warning</b>: Beware of deceptive emails from "Travel Hosting Team" and others promising to book lodging for you; they are not affiliated with us!
 </p>
-<hr>
-<p>
-Participants may also be interested in the <a href="https://antsmath.org/ANTSXVI/"><b>ANTS XVI</b></a> conference at MIT the following week, July 15-19.  It has a separate <a href="https://antsmath.org/ANTSXVI/registration.html">registration</a>.
+
+<h2 style="margin-bottom: 0px;">Schedule</h2>
+<div style="margin-bottom: 10px; text-align:center;"><small>(Click speaker names for their websites. Click <i>titles</i> for abstracts.)</small></div>
+
+<table class="schedule">
+<tr><td colspan=3 class="day"><b>Monday</b></td></tr>
+<tr>
+<td>9:30</td>
+<td><a href="https://www.mpim-bonn.mpg.de/node/102"><b>Gerd Faltings</b></a></td>
+<td><div onclick="tog('faltings');" class="talk">
+Mordell past and present
+<p id="faltings" class="abstract hidden">
+I present the history of the proof of Mordell in 1983 and report on
+recent developments.
 </p>
+</div></td>
+</tr>
+<tr><td>10:30</td><td>Coffee/tea</td><td></td></tr>
+<tr>
+<td>11:15</td><td><div class="lt" onclick="togs('lt1');">Lightning talks</div></td><td><div class="lts" onclick="togs('lt1');">(click to show/hide talks)</div></td></tr>
+<tr class="lt1 hidden"><td></td><td>Speaker 1</td><td>Title 1</td></tr>
+<tr class="lt1 hidden"><td></td><td>Speaker 2</td><td>Title 2</td></tr>
+<tr class="lt1 hidden"><td></td><td>Speaker 3</td><td>Title 3</td></tr>
+<tr class="lt1 hidden"><td></td><td>Speaker 4</td><td>Title 4</td></tr>
+<tr class="lt1 hidden"><td></td><td>Speaker 5</td><td>Title 5</td></tr>
+<tr class="lt1 hidden"><td></td><td>Speaker 6</td><td>Title 6</td></tr>
+<tr class="lt1 hidden"><td></td><td>Speaker 7</td><td>Title 7</td></tr>
+<tr class="lt1 hidden"><td></td><td>Speaker 8</td><td>Title 8</td></tr>
+<tr>
+<td>2:00</td>
+<td><a href="https://www.iazd.uni-hannover.de/en/gao"><b>Ziyang Gao</b></a></td>
+<td><div onclick="tog('gao');" class="talk">
+Sparsity of rational points on curves
+<p id="gao" class="abstract hidden">
+It is a fundamental question in mathematics to find rational solutions to a given system of polynomials, and in modern language this question translates into finding rational points in algebraic varieties. This question is already very deep for algebraic curves defined over &#8474;. An intrinsic natural number associated with the curve, called its genus, plays an important role in studying the rational points on the curve. In 1983, Faltings proved the famous Mordell Conjecture (proposed in 1922), which asserts that any curve of genus at least 2 has only finitely many rational points. Thus the problem for curves of genus at least 2 can be divided into several grades: finiteness, bound, uniform bound, effectiveness. An answer to each grade requires a better understanding of the distribution of the rational points.
+
+In my talk, I will explain the historical and recent developments of this problem according to the different grades. I will also mention an ongoing work (joint with Shouwu Zhang) about a non-vanishing property and a Northcott property of the Gross-Schoen cycles and the Ceresa cycles for curves.
+</p>
+</div></td>
+</tr>
+<tr><td>3:10</td><td><div class="lt" onclick="togs('lt2');">Lightning talks</div></td><td><div class="lts" onclick="togs('lt2');">(click to show/hide talks)</div></td></tr>
+<tr class="lt2 hidden"><td></td><td>Speaker 1</td><td>Title 1</td></tr>
+<tr class="lt2 hidden"><td></td><td>Speaker 2</td><td>Title 2</td></tr>
+<tr class="lt2 hidden"><td></td><td>Speaker 3</td><td>Title 3</td></tr>
+<tr class="lt2 hidden"><td></td><td>Speaker 4</td><td>Title 4</td></tr>
+<tr class="lt2 hidden"><td></td><td>Speaker 5</td><td>Title 5</td></tr>
+<tr class="lt2 hidden"><td></td><td>Speaker 6</td><td>Title 6</td></tr>
+<tr class="lt2 hidden"><td></td><td>Speaker 7</td><td>Title 7</td></tr>
+<tr class="lt2 hidden"><td></td><td>Speaker 8</td><td>Title 8</td></tr>
+<tr><td>4:00</td><td>Coffee/tea</td><td></td></tr>
+<tr>
+<td>4:45</td>
+<td><a href="https://sites.google.com/view/larskuehne"><b>Lars Kühne</b></a></td>
+<td><div onclick="tog('kuhne');" class="talk">
+<i>TBA</i>
+<p id="kuhne" class="abstract hidden">
+Abstract to be added.
+</p>
+</div></td>
+</tr>
+<tr><td colspan=3 class="day"><b>Tuesday</b></td></tr>
+<tr>
+<td>9:30</td>
+<td><a href="http://faculty.bicmr.pku.edu.cn/~yxy/"><b>Xinyi Yuan</b></a></td>
+<td><div onclick="tog('yuan');" class="talk">
+<i>On the uniform Mordell conjecture</i>
+<p id="yuan" class="abstract hidden">
+In the past few years, the uniform Mordell conjecture proposed by Mazur was proved by Dimitrov-Gao-Habegger, and Kuhne, where the proof is based on Vojta's proof of the Mordell conjecture. By the theory of adelic line bundle of Yuan-Zhang, I have obtained a different proof which works over both number fields and function fields. In this talk, I will give a survey on these results.
+</p>
+</div></td>
+</tr>
+<tr><td>10:30</td><td>Coffee/tea</td><td></td></tr>
+<tr>
+<td>11:15</td><td><div class="lt" onclick="togs('lt3');">Lightning talks</div></td><td><div class="lts" onclick="togs('lt3');">(click to show/hide talks)</div></td></tr>
+<tr class="lt3 hidden"><td></td><td>Speaker 1</td><td>Title 1</td></tr>
+<tr class="lt3 hidden"><td></td><td>Speaker 2</td><td>Title 2</td></tr>
+<tr class="lt3 hidden"><td></td><td>Speaker 3</td><td>Title 3</td></tr>
+<tr class="lt3 hidden"><td></td><td>Speaker 4</td><td>Title 4</td></tr>
+<tr class="lt3 hidden"><td></td><td>Speaker 5</td><td>Title 5</td></tr>
+<tr class="lt3 hidden"><td></td><td>Speaker 6</td><td>Title 6</td></tr>
+<tr class="lt3 hidden"><td></td><td>Speaker 7</td><td>Title 7</td></tr>
+<tr class="lt3 hidden"><td></td><td>Speaker 8</td><td>Title 8</td></tr>
+<tr>
+<td>2:00</td>
+<td><a href="https://www.sns.it/en/persona/umberto-zannier"><b>Umberto Zannier</b></a></td>
+<td><div onclick="tog('zannier');" class="talk">
+<i>The affine case of Mordell conjecture: a survey on Siegel's theorem on integral points</i>
+<p id="zannier" class="abstract hidden">
+In 1929 an epoch-making paper of Siegel offered a theorem representing the Mordell conjecture for affine curves: "A hyperbolic affine curve has only finitely many integral points" (which is a best-possible condition).
+In the talk I shall briefly survey on the history of this result, pointing out some proof-approaches, extensions to higher dimensions, and related issues, like effectivity or uniform estimates for the number of solutions of diophantine equations in integers.
+</p>
+</div></td>
+</tr>
+<tr><td>3:10</td><td><div class="lt" onclick="togs('lt4');">Lightning talks</div></td><td><div class="lts" onclick="togs('lt4');">(click to show/hide talks)</div></td></tr>
+<tr class="lt4 hidden"><td></td><td>Speaker 1</td><td>Title 1</td></tr>
+<tr class="lt4 hidden"><td></td><td>Speaker 2</td><td>Title 2</td></tr>
+<tr class="lt4 hidden"><td></td><td>Speaker 3</td><td>Title 3</td></tr>
+<tr class="lt4 hidden"><td></td><td>Speaker 4</td><td>Title 4</td></tr>
+<tr class="lt4 hidden"><td></td><td>Speaker 5</td><td>Title 5</td></tr>
+<tr class="lt4 hidden"><td></td><td>Speaker 6</td><td>Title 6</td></tr>
+<tr class="lt4 hidden"><td></td><td>Speaker 7</td><td>Title 7</td></tr>
+<tr class="lt4 hidden"><td></td><td>Speaker 8</td><td>Title 8</td></tr>
+<tr><td>4:00</td><td>Coffee/tea</td><td></td></tr>
+<tr>
+<td>4:45</td>
+<td><a href="https://sites.math.washington.edu//~bviray/"><b>Bianca Viray</b></a></td>
+<td><div onclick="tog('viray');" class="talk">
+<i>Algebraic points on curves</i>
+<p id="viray" class="abstract hidden">
+The Mordell Conjecture (proved by Faltings in 1983) is a landmark result exemplifying the philosophy "Geometry controls arithmetic". However, it also implies that we can never hope to understand the arithmetic of a higher genus curve solely by studying its rational points over a fixed number field. In this talk, we will introduce the concepts of parametrized points and density degree sets and show how they, together with the Mordell-Lang conjecture, allow us to organize all algebraic points on a curve.
+</p>
+</div></td>
+</tr>
+<tr><td colspan=3 class="day"><b>Wednesday</b></td></tr>
+<tr>
+<td>9:00</td>
+<td><a href="https://www.maths.ox.ac.uk/people/ehud.hrushovski"><b>Ehud Hrushovski</b></a></td>
+<td><div onclick="tog('hrushovski');" class="talk">
+<i>TBA</i>
+<p id="hrushovski" class="abstract hidden">
+Abstract to be added.
+</p>
+</div></td>
+</tr>
+<tr><td>10:00</td><td>Coffee/tea</td><td></td></tr>
+<tr>
+<td>10:30</td>
+<td><a href="https://www.math.canterbury.ac.nz/~f.voloch/"><b>José Felipe Voloch</b></a></td>
+<td><div onclick="tog('voloch');" class="talk">
+<i>Mordell's conjecture in positive characteristic and descent obstructions</i>
+<p id="voloch" class="abstract hidden">
+I will give a brief historical overview of the Mordell conjecture over function fields of positive characteristic (mainly). Then, I'll discuss its relationship with descent obstructions for rational points and present a recent result obtained with B. Creutz, which completes my earlier work with B. Poonen, showing that finite descent obstructions fully characterize the rational points on non-isotrivial curves over function fields.
+</p>
+</div></td>
+</tr>
+<tr>
+<td>11:40</td>
+<td><a href="https://sites.google.com/site/damarishomepage/"><b>Damaris Schindler</b></a></td>
+<td><div onclick="tog('schindler');" class="talk">
+<i>Density of rational points near manifolds</i>
+<p id="schindler" class="abstract hidden">
+Given a bounded submanifold <i>M</i> in &reals;<sup><i>n</i></sup>, how many rational points with common bounded denominator are there in a small thickening of <i>M</i>? Under what conditions can we count them asymptotically as the size of the denominator goes to infinity? I will discuss some recent work in this direction and arithmetic applications such as Serre's dimension growth conjecture as well as applications in Diophantine approximation. For this I'll focus on joint work with Shuntaro Yamagishi, as well as joint work with Rajula Srivastava and Niclas Technau.
+</p>
+</div></td>
+</tr>
+<tr><td colspan=3 class="day"><b>Thursday</b></td></tr>
+<tr>
+<td>9:30</td>
+<td><a href="https://www.uni-math.gwdg.de/viada/"><b>Evelina Viada</b></a></td>
+<td><div onclick="tog('viada');" class="talk">
+<i>On the torsion and rational points of some curves</i>
+<p id="viada" class="abstract hidden">
+I will present an overview of some explicit methods in the context of the Manin-Mumford and Mordell Conjecture. This  allows to give examples of  families of curves whose rational and torsion points can be explicitly determined.
+</p>
+</div></td>
+</tr>
+<tr><td>10:30</td><td>Coffee/tea</td><td></td></tr>
+<tr>
+<td>11:15</td>
+<td><a href="https://people.math.harvard.edu/~alpoge/"><b>Levent Alpöge</b></a></td>
+<td><div onclick="tog('alpoge');" class="talk">
+<i>TBA</i>
+<p id="alpoge" class="abstract hidden">
+Abstract to be added.
+</p>
+</div></td>
+</tr>
+<tr>
+<td>2:15</td>
+<td><a href="https://sites.google.com/view/nicole-looper"><b>Nicole Looper</b></a></td>
+<td><div onclick="tog('looper');" class="talk">
+<i>Rationality in arithmetic dynamics</i>
+<p id="looper" class="abstract hidden">
+Arithmetic dynamics is a relatively new field that draws inspiration from both algebraic geometry and classical complex dynamics. On its Diophantine side, arithmetic dynamics comprises a number of analogues and generalizations of statements concerning rational points, such as the Uniform Boundedness Conjecture of Morton and Silverman. In the reverse direction, ideas drawn from dynamical systems have deep implications for problems concerning rational points on curves and abelian varieties, particularly via potential theory and recent developments in Arakelov theory. This talk will discuss these two connections, along with the salient techniques that have emerged as well as avenues for further exploration.
+</p>
+</div></td>
+</tr>
+<tr><td>3:15</td><td>Coffee/tea</td><td></td></tr>
+<tr><td>4:00</td><td>Problem session</td><td></td></tr>
+<tr><td colspan=3 class="day"><b>Friday</b></td></tr>
+<tr>
+<td>9:30</td>
+<td><a href="https://webspace.science.uu.nl/~piero001/"><b>Marta Pieropan</b></a></td>
+<td><div onclick="tog('pieropan');" class="talk">
+<i>Campana points: conjectures and results</i>
+<p id="pieropan" class="abstract hidden">
+Campana points are an arithmetic notion, first studied by Campana and Abramovich, that interpolates between the notions of rational and integral points. Campana points are expected to satisfy suitable analogs of Mordell's conjecture, Lang's conjecture, Vojta's conjecture and Manin's conjecture, and their study introduces new number theoretic challenges of a computational nature. In this talk I introduce Campana points, recall the main results, and discuss a range of open questions.
+</p>
+</div></td>
+</tr>
+<tr><td>10:30</td><td>Coffee/tea</td><td></td></tr>
+<tr>
+<td>11:00</td>
+<td><a href="https://www.mat.uc.cl/~hector.pasten/"><b>Hector Pasten</b></a></td>
+<td><div onclick="tog('pasten');" class="talk">
+<i>Xeric varieties and their relation with geometry and p-adic analysis</i>
+<div id="pasten" class="abstract hidden">
+General conjectures mainly due to Green, Griffiths, and Lang, predict that for a smooth projective variety <i>X</i> defined over a number field <i>K</i> the following are equivalent: 
+<ol type="1">
+<li>(an arithmetic condition) <i>X</i> is Mordellic, that is, for every finite extension <i>L</i>/<i>K</i> the set <i>X</i>(<i>L</i>) is finite;</li>
+<li>(a geometric condition) <i>X</i> does not admit any non-constant rational maps from abelian varieties over an algebraic closure of <i>K</i>; and</li> 
+<li>(an analytic condition) for some (or all) complex embedding of <i>K</i>, the variety <i>X</i> is complex hyperbolic.</li>
+</ol>
+We will discuss a similar conjecture regarding sparsity of rational points rather than finiteness. Namely, we say that <i>X</i> is xeric if <i>X</i>(<i>L</i>) is sparse for every finite extension <i>L</i>/<i>K</i> and we expect that the following are equivalent: 
+
+<ol type="i">
+<li>(an arithmetic condition) <i>X</i> is xeric;</li>
+<li>(a geometric condition) over an algebraic closure of <i>K</i>, the variety <i>X</i> contains no rational curves; and</li>
+<li>(an analytic condition) for some (or all) primes <i>p</i>, every <i>p</i>-adic analytic map from the affine line to <i>X</i> is constant.</li>
+</ol>
+
+The conjecture is motivated by earlier conjectures of Manin and Cherry. We will present several examples where the equivalences hold (at least partially) and we will discuss its relation with other general conjectures. This is joint work with Natalia Garcia-Fritz.
+</div>
+</div></td>
+</tr>
+<tr>
+<td>2:00</td>
+<td><a href="https://lalexanderbetts.net/"><b>Alexander Betts</b></a></td>
+<td><div onclick="tog('betts');" class="talk">
+<i>Chabauty-Kim theory: retrospectives and prospects</i>
+<p id="betts" class="abstract hidden">
+Over the last twenty-odd years, Minhyong Kim's method of non-abelian Chabauty has provided a powerful tool for addressing Mordell-like Diophantine problems. In this talk, I will give an overview of the development of the method: highlighting some of its key successes, and drawing out some common themes in the techniques used and the problems addressed. Time permitting, I will also say a few words about where I think the method is heading, and what I think the major challenges are.
+</p>
+</div></td>
+</tr>
+<tr><td>3:00</td><td>Coffee/tea</td><td></td></tr>
+<tr>
+<td>3:30</td>
+<td><a href="https://www.mathe2.uni-bayreuth.de/stoll/"><b>Michael Stoll</b></a></td>
+<td><div onclick="tog('stoll');" class="talk">
+<i>Formalizing Mordell</i>
+<p id="stoll" class="abstract hidden">
+I will give a short introduction to interactive theorem proving (using Lean) and will then discuss what would be needed to (a) state and (b) give a proof of Mordell's Conjecture in Lean, building on its mathematical library Mathlib.
+</p>
+</div></td>
+</tr>
+<tr><td colspan=3 class="day"></td></tr>
+</table>
 <p>
+Participants may also be interested in the <a href="https://antsmath.org/ANTSXVI/"><b>ANTS XVI</b></a> conference at MIT the following week.  It has a separate <a href="https://antsmath.org/ANTSXVI/registration.html">registration</a>.
+</p>
+<p style="text-align: center;">
 Organizers: <a href="https://math.bu.edu/people/jbala/">Jennifer Balakrishnan</a>, <a href="https://numbertheory.dmi.unibas.ch/habegger/">Philipp Habegger</a>, <a href="https://math.mit.edu/~poonen/">Bjorn Poonen</a>, <a href="https://math.mit.edu/~drew/">Andrew Sutherland</a>, <a href="https://math.mit.edu/~wz2113/">Wei Zhang</a>
 </p>
-<p>
-This conference is supported by awards from the Simons Foundation and the National Science Foundation.
-</p>
-<center>
 <div class="desktop-div">
-<table width=80%>
+<table width=80% style="margin:auto;">
 <tr><td align="left"><img src="NSF-logo.png" alt="National Science Foundation logo" width=80%></td><td></td><td align="right"><img src="Simons-Foundation-logo.png" alt="Simons Foundation logo" width=80%></td></tr>
 </table>
 </div>
 <div class="mobile-div">
-<img src="NSF-logo.png" alt="National Science Foundation logo" width=50%%>
+<center>
+<img src="NSF-logo.png" alt="National Science Foundation logo" width=50%>
 <img src="Simons-Foundation-logo.png" alt="Simons Foundation logo" width=75%>
-</div>
 </center>
 </div>
 </body>
