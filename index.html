@@ -239,10 +239,28 @@ I will give a brief historical overview of the Mordell conjecture over function 
 <td>11:40</td>
 <td><a href="https://people.math.harvard.edu/~alpoge/"><b>Levent Alpöge</b></a></td>
 <td><div onclick="tog('alpoge');" class="talk">
-<i>TBA</i>
-<p id="alpoge" class="abstract hidden">
-Abstract to be added.
-</p>
+<i>Conditional algorithmic Mordell</i>
+<div id="alpoge" class="abstract hidden">
+We all know there is a Turing machine <i>T</i><sub>mwrank</sub> with the following
+properties.
+<ol type="1">
+<li>On input <i>E</i> / <i>K</i> an elliptic curve over a number field, if <i>T</i><sub>mwrank</sub> terminates, it outputs rank E(K).</li>
+<li>Assuming standard conjectures <i>T</i><sub>mwrank</sub> terminates on all inputs.</li>
+</ol>
+In fact <i>T</i><sub>mwrank</sub> terminates in reasonable time in practice and the conjecture involved is "only" the finiteness of a <i>p</i>-part of a Tate-Shafarevich group.
+
+<p style="margin:0px; padding:8px 0px;">It would be amusing to have the same situation for rational points on curves. This talk will focus on the following.</p>
+
+Theorem (A.-Brian Lawrence): there is a Turing machine <i>T</i><sub>Mordell</sub> with the following properties.
+<ol type="1">
+<li>On input <i>C</i> / <i>K</i> a smooth projective hyperbolic curve over a number field,
+if <i>T</i><sub>Mordell</sub> terminates, it outputs <i>C</i>(<i>K</i>).</li>
+<li>Assuming standard conjectures <i>T</i><sub>Mordell</sub> terminates on all inputs.</li>
+</ol>
+As a comparison with <i>T</i><sub>mwrank</sub>, this algorithm is full of brute-force searching and so is fundamentally hopeless to run in practice. Also, the relevant conjectures are the Hodge, Tate, and Fontaine-Mazur conjectures, which I consider much more hopeless.
+
+<p style="margin:0px; padding-top:8px;">If I have time I will mention how one can produce a totally unconditional statement for certain curves over an infinite family of number fields by using potential modularity theorems.</p>
+</div>
 </div></td>
 </tr>
 <tr><td colspan=3 class="day"><b>Thursday</b></td></tr>
