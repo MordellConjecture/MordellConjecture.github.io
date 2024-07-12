@@ -17,7 +17,7 @@ body { margin: auto; max-width: 800px;}
 .mobile-div { display: none; }
 .desktop-div { display: block; }
 .nowrap { white-space: nowrap; }
-.talk { cursor: pointer; font-style: italic;}
+.talk { cursor: pointer; }
 .lt { cursor: pointer; }
 .lt1 { font-size: smaller; cursor: pointer; }
 .lt2 { font-size: smaller; cursor: pointer; }
@@ -112,7 +112,7 @@ function togs(c) { var es = document.getElementsByClassName(c), len = es ? es.le
 <td>9:30</td>
 <td><a href="https://www.mpim-bonn.mpg.de/node/102"><b>Gerd Faltings</b></a></td>
 <td><div onclick="tog('faltings');" class="talk">
-Mordell past and present
+<i>Mordell past and present</i> <small>(<a href="slides/Faltings.pdf" target="_blank"><b>slides</b></a>)</small>
 <p id="faltings" class="abstract hidden">
 I present the history of the proof of Mordell in 1983 and report on
 recent developments.
@@ -120,19 +120,19 @@ recent developments.
 </div></td>
 </tr>
 <tr><td>10:30</td><td>Coffee/tea</td><td></td></tr>
-<tr onclick="togs('lt1');"><td>11:15</td><td><div class="lt"><a href="lightning.pdf" target="_blank">Lightning talks</a></div></td><td><div class="lts">(click here to view talks in this session, click "Lightning talks" for abstracts)</div></td></tr>
-<tr class="lt1 hidden" onclick="togs('lt1');"><td></td><td><b>Marius Leonhardt</b></td><td><i>Affine Chabauty</i></td></tr>
-<tr class="lt1 hidden" onclick="togs('lt1');"><td></td><td><b>Florian Ito Sprung</b></td><td><i>Hilbert’s 10th problem for number fields</i></td></tr>
-<tr class="lt1 hidden" onclick="togs('lt1');"><td></td><td><b>Ashvin A. Swaminathan</b></td><td><i>A positive proportion of monic odd hyperelliptic curves have no unexpected quadratic points</i></td></tr>
-<tr class="lt1 hidden" onclick="togs('lt1');"><td></td><td><b>Matt Broe</b></td><td><i>The motive of the g-fold product of a CM elliptic curve</i></td></tr>
-<tr class="lt1 hidden" onclick="togs('lt1');"><td></td><td><b>Aaron Landesman</b></td><td><i>The distribution of ranks of abelian varieties in quadratic twist families over function fields</i></td></tr>
-<tr class="lt1 hidden" onclick="togs('lt1');"><td></td><td><b>Rina Paucar</b></td><td><i>On a special case of Bloch-Beilinson conjectures</i></td></tr>
-<tr class="lt1 hidden" onclick="togs('lt1');"><td></td><td><b>Chris Xu</b></td><td><i>Model-free quadratic Chabauty for modular curves</i></td></tr>
+<tr onclick="togs('lt1');"><td>11:15</td><td><div class="lt"><a href="lightning.pdf" target="_blank">Lightning talks</a></div></td><td><div class="lt1">(click to see authors and titles)</div><div class="lt1 hidden">(click to collapse)</div></td></tr>
+<tr class="lt1 hidden"><td></td><td><b>Marius Leonhardt</b></td><td><i>Affine Chabauty</i> (<a href="lightning/Leonhardt.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt1 hidden"><td></td><td><b>Florian Ito Sprung</b></td><td><i>Hilbert’s 10th problem for number fields</i> (<a href="lightning/Leonhardt.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt1 hidden"><td></td><td><b>Ashvin A. Swaminathan</b></td><td><i>A positive proportion of monic odd hyperelliptic curves have no unexpected quadratic points</i> (<a href="lightning/Swaminathan.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt1 hidden"><td></td><td><b>Matt Broe</b></td><td><i>The motive of the g-fold product of a CM elliptic curve</i></td></tr>
+<tr class="lt1 hidden"><td></td><td><b>Aaron Landesman</b></td><td><i>The distribution of ranks of abelian varieties in quadratic twist families over function fields</i> (<a href="lightning/Landesman.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt1 hidden"><td></td><td><b>Rina Paucar</b></td><td><i>On a special case of Bloch-Beilinson conjectures</i> (<a href="lightning/Paucar.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt1 hidden"><td></td><td><b>Chris Xu</b></td><td><i>Model-free quadratic Chabauty for modular curves</i> (<a href="lightning/Xu.pdf" target="_blank"><b>slides</b></a>)</td></tr>
 <tr>
 <td>2:00</td>
 <td><a href="https://www.iazd.uni-hannover.de/en/gao"><b>Ziyang Gao</b></a></td>
 <td><div onclick="tog('gao');" class="talk">
-Sparsity of rational points on curves
+<i>Sparsity of rational points on curves</i> <small>(<a href="slides/Gao.pdf" target="_blank"><b>slides</b></a>)</small>
 <p id="gao" class="abstract hidden">
 It is a fundamental question in mathematics to find rational solutions to a given system of polynomials, and in modern language this question translates into finding rational points in algebraic varieties. This question is already very deep for algebraic curves defined over &#8474;. An intrinsic natural number associated with the curve, called its genus, plays an important role in studying the rational points on the curve. In 1983, Faltings proved the famous Mordell Conjecture (proposed in 1922), which asserts that any curve of genus at least 2 has only finitely many rational points. Thus the problem for curves of genus at least 2 can be divided into several grades: finiteness, bound, uniform bound, effectiveness. An answer to each grade requires a better understanding of the distribution of the rational points.
 
@@ -140,13 +140,14 @@ In my talk, I will explain the historical and recent developments of this proble
 </p>
 </div></td>
 </tr>
-<tr onclick="togs('lt2');"><td>3:10</td><td><div class="lt"><a href="lightning.pdf" target="_blank">Lightning talks</a></div></td><td><div class="lts">(click here to view talks in this session, click "Lightning talks" for abstracts)</div><tr class="lt2 hidden" onclick="togs('lt2');"><td></td><td><b>Ivan Aidun</b></td><td><i>Arithmetic strength of curves</i></td></tr>
-<tr class="lt2 hidden" onclick="togs('lt2');"><td></td><td><b>Lorenzo Furio</b></td><td><i>Recent progress on Serre’s uniformity question</i></td></tr>
-<tr class="lt2 hidden" onclick="togs('lt2');"><td></td><td><b>Arav Karighattam</b></td><td><i>Heegner points on y<sup>2</sup> = x<sup>3</sup> + p</i></td></tr>
-<tr class="lt2 hidden" onclick="togs('lt2');"><td></td><td><b>Elvira Lupoian</b></td><td><i>Cuspidal groups of modular Jacobians</i></td></tr>
-<tr class="lt2 hidden" onclick="togs('lt2');"><td></td><td><b>Boaz Moerman</b></td><td><i>Generalized Campana points and adelic approximation</i></td></tr>
-<tr class="lt2 hidden" onclick="togs('lt2');"><td></td><td><b>James Austin Myer</b></td><td><i>(Toward) an algorithm to (explicitly) produce a regular model of a hyperelliptic curve in (bad) Characteristic (0,2): a criterion to verify regularity of the normalization of a candidate model</i></td></tr>
-<tr class="lt2 hidden" onclick="togs('lt2');"><td></td><td><b>Robin Visser</b></td><td><i>Computing genus 2 curves over Q whose Jacobian has good reduction away from 2</i></td></tr>
+<tr onclick="togs('lt2');"><td>3:10</td><td><div class="lt"><a href="lightning.pdf" target="_blank">Lightning talks</a></div></td><td><div class="lt2">(click to see authors and titles)</div><div class="lt2 hidden">(click to collapse)</div></td></tr>
+<tr class="lt2 hidden"><td></td><td><b>Ivan Aidun</b></td><td><i>Arithmetic strength of curves</i> (<a href="lightning/Aidun.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt2 hidden"><td></td><td><b>Lorenzo Furio</b></td><td><i>Recent progress on Serre’s uniformity question</i> (<a href="lightning/Furio.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt2 hidden"><td></td><td><b>Arav Karighattam</b></td><td><i>Heegner points on y<sup>2</sup> = x<sup>3</sup> + p</i> (<a href="lightning/Karighattam.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt2 hidden"><td></td><td><b>Elvira Lupoian</b></td><td><i>Cuspidal groups of modular Jacobians</i> (<a href="lightning/Lupoian.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt2 hidden"><td></td><td><b>Boaz Moerman</b></td><td><i>Generalized Campana points and adelic approximation</i> (<a href="lightning/Moerman.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt2 hidden"><td></td><td><b>James Austin Myer</b></td><td><i>(Toward) an algorithm to (explicitly) produce a regular model of a hyperelliptic curve in (bad) Characteristic (0,2): a criterion to verify regularity of the normalization of a candidate model</i></td></tr>
+<tr class="lt2 hidden"><td></td><td><b>Robin Visser</b></td><td><i>Computing genus 2 curves over Q whose Jacobian has good reduction away from 2</i> (<a href="lightning/Visser.pdf" target="_blank"><b>slides</b></a>)</td></tr>
 <tr><td>4:00</td><td>Coffee/tea</td><td></td></tr>
 <tr>
 <td>4:45</td>
@@ -170,13 +171,14 @@ In the past few years, the uniform Mordell conjecture proposed by Mazur was prov
 </div></td>
 </tr>
 <tr><td>10:30</td><td>Coffee/tea</td><td></td></tr>
-<tr onclick="togs('lt3');"><td>11:15</td><td><div class="lt"><a href="lightning.pdf" target="_blank">Lightning talks</a></div></td><td><div class="lts">(click here to view talks in this session, click "Lightning talks" for abstracts)</div><tr class="lt3 hidden" onclick="togs('lt3');"><td></td><td><b>Elyes Boughattas</b></td><td><i>The tale of the fibration method</i></td></tr>
-<tr class="lt3 hidden" onclick="togs('lt3');"><td></td><td><b>Jerry Yu Fu</b></td><td><i>Isogenous elliptic curves in a family ordered by height</i></td></tr>
-<tr class="lt3 hidden" onclick="togs('lt3');"><td></td><td><b>Asimina Hamakiotes</b></td><td><i>Towards a classification of p<sup>2</sup>-discriminant ideal twins over number fields</i></td></tr>
-<tr class="lt3 hidden" onclick="togs('lt3');"><td></td><td><b>Maleeha Khawaja</b></td><td><i>Primitive algebraic points on curves</i></td></tr>
-<tr class="lt3 hidden" onclick="togs('lt3');"><td></td><td><b>Pietro Mercuri</b></td><td><i>Arakelov canonical divisor and Bogomolov conjecture for modular curves</i></td></tr>
-<tr class="lt3 hidden" onclick="togs('lt3');"><td></td><td><b>Thibaut Misme</b></td><td><i>Automatized computation of Odd Theta Caracteristic and 2-descent</i></td></tr>
-<tr class="lt3 hidden" onclick="togs('lt3');"><td></td><td><b>Madhavan Venkatesh</b></td><td><i>Effective bounds for Gabber’s theorem</i></td></tr>
+<tr onclick="togs('lt3');"><td>11:15</td><td><div class="lt"><a href="lightning.pdf" target="_blank">Lightning talks</a></div></td><td><div class="lt3">(click to see authors and titles)</div><div class="lt3 hidden">(click to collapse)</div></td></tr>
+<tr class="lt3 hidden"><td></td><td><b>Elyes Boughattas</b></td><td><i>The tale of the fibration method</i></td></tr>
+<tr class="lt3 hidden"><td></td><td><b>Jerry Yu Fu</b></td><td><i>Isogenous elliptic curves in a family ordered by height</i></td></tr>
+<tr class="lt3 hidden"><td></td><td><b>Asimina Hamakiotes</b></td><td><i>Towards a classification of p<sup>2</sup>-discriminant ideal twins over number fields</i></td></tr>
+<tr class="lt3 hidden"><td></td><td><b>Maleeha Khawaja</b></td><td><i>Primitive algebraic points on curves</i></td></tr>
+<tr class="lt3 hidden"><td></td><td><b>Pietro Mercuri</b></td><td><i>Arakelov canonical divisor and Bogomolov conjecture for modular curves</i> (<a href="lightning/Mercuri.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt3 hidden"><td></td><td><b>Thibaut Misme</b></td><td><i>Automatized computation of Odd Theta Caracteristic and 2-descent</i> (<a href="lightning/Misme.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt3 hidden"><td></td><td><b>Madhavan Venkatesh</b></td><td><i>Effective bounds for Gabber’s theorem</i> (<a href="lightning/Venkatesh.pdf" target="_blank"><b>slides</b></a>)</td></tr>
 <tr>
 <td>2:00</td>
 <td><a href="https://www.sns.it/en/persona/umberto-zannier"><b>Umberto Zannier</b></a></td>
@@ -188,14 +190,15 @@ In the talk I shall briefly survey on the history of this result, pointing out s
 </p>
 </div></td>
 </tr>
-<tr onclick="togs('lt4');"><td>3:10</td><td><div class="lt"><a href="lightning.pdf" target="_blank">Lightning talks</a></div></td><td><div class="lts">(click here to view talks in this session, click "Lightning talks" for abstracts)</div><tr class="lt4 hidden" onclick="togs('lt4');"><td></td><td><b>Niven Achenjang</b></td><td><i>The average rank of elliptic curves is bounded, over any global field</i></td></tr>
-<tr class="lt4 hidden" onclick="togs('lt4');"><td></td><td><b>Luca Ferrigno</b></td><td><i>Isogeny relations in products of families of elliptic curves</i></td></tr>
-<tr class="lt4 hidden" onclick="togs('lt4');"><td></td><td><b>Giorgio Navone</b></td><td><i>Transcendental Brauer group of certain K3 surfaces</i></td></tr>
-<tr class="lt4 hidden" onclick="togs('lt4');"><td></td><td><b>Benjamin York</b></td><td><i>Models of CM elliptic curves with prescribed &ell;-adic Galois image</i></td></tr>
-<tr class="lt4 hidden" onclick="togs('lt4');"><td></td><td><b>Roy Zhao</b></td><td><i>Algebraic Independence of Special Points on Shimura Varieties</i></td></tr>
-<tr class="lt4 hidden" onclick="togs('lt4');"><td></td><td><b>Sa’ar Zehavi</b></td><td><i>The Chabauty&ndash;Kim-Kantor method</i></td></tr>
-<tr class="lt4 hidden" onclick="togs('lt4');"><td></td><td><b>Pratiksha Shingavekar</b></td><td><i>A positive density of elliptic curves are diophantine stable in
-certain Galois extensions</i></td></tr>
+<tr onclick="togs('lt4');"><td>3:10</td><td><div class="lt"><a href="lightning.pdf" target="_blank">Lightning talks</a></div></td><td><div class="lt4">(click to see authors and titles)</div><div class="lt4 hidden">(click to collapse)</div></td></tr>
+<tr class="lt4 hidden"><td></td><td><b>Niven Achenjang</b></td><td><i>The average rank of elliptic curves is bounded, over any global field</i> (<a href="lightning/Achenjang.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt4 hidden"><td></td><td><b>Luca Ferrigno</b></td><td><i>Isogeny relations in products of families of elliptic curves</i> (<a href="lightning/Ferrigno.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt4 hidden"><td></td><td><b>Giorgio Navone</b></td><td><i>Transcendental Brauer group of certain K3 surfaces</i> (<a href="lightning/Navone.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt4 hidden"><td></td><td><b>Benjamin York</b></td><td><i>Models of CM elliptic curves with prescribed &ell;-adic Galois image</i></td></tr>
+<tr class="lt4 hidden"><td></td><td><b>Roy Zhao</b></td><td><i>Algebraic Independence of Special Points on Shimura Varieties</i> (<a href="lightning/Zhao.pdf" target="_blank"><b>slides</b></a>)</td></tr>
+<tr class="lt4 hidden"><td></td><td><b>Sa’ar Zehavi</b></td><td><i>The Chabauty&ndash;Kim-Kantor method</i></td></tr>
+<tr class="lt4 hidden"><td></td><td><b>Pratiksha Shingavekar</b></td><td><i>A positive density of elliptic curves are diophantine stable in
+certain Galois extensions</i> (<a href="lightning/Shingavekar.pdf" target="_blank"><b>slides</b></a>)</td></tr>
 <tr><td>4:00</td><td>Coffee/tea</td><td></td></tr>
 <tr>
 <td>4:45</td>
@@ -212,7 +215,7 @@ The Mordell Conjecture (proved by Faltings in 1983) is a landmark result exempli
 <td><b>9:00</b></td>
 <td><a href="https://www.maths.ox.ac.uk/people/ehud.hrushovski"><b>Ehud Hrushovski</b></a></td>
 <td><div onclick="tog('hrushovski');" class="talk">
-<i>Towards a model theory of heights</i>
+<i>Towards a model theory of heights</i> <small>(<a href="slides/Hrushovski.pdf" target="_blank"><b>slides</b></a>)</small>
 <p id="hrushovski" class="abstract hidden">
 I will discuss some past, present, and hopes for future contacts between model theory and diophantine geometry.  Such contacts are always mediated by a `tame' intermediate theory, such as differential or separably closed fields, difference fields, or the theory of the real exponential field with local analytic functions.  I will describe the state of our attempts to construct such a tame theory capable of defining heights.
 </p>
@@ -223,7 +226,7 @@ I will discuss some past, present, and hopes for future contacts between model t
 <td>10:30</td>
 <td><a href="https://www.math.canterbury.ac.nz/~f.voloch/"><b>José Felipe Voloch</b></a></td>
 <td><div onclick="tog('voloch');" class="talk">
-<i>Mordell's conjecture in positive characteristic and descent obstructions</i>
+<i>Mordell's conjecture in positive characteristic and descent obstructions</i> <small>(<a href="slides/Voloch.pdf" target="_blank"><b>slides</b></a>)</small>
 <p id="voloch" class="abstract hidden">
 I will give a brief historical overview of the Mordell conjecture over function fields of positive characteristic (mainly). Then, I'll discuss its relationship with descent obstructions for rational points and present a recent result obtained with B. Creutz, which completes my earlier work with B. Poonen, showing that finite descent obstructions fully characterize the rational points on non-isotrivial curves over function fields.
 </p>
@@ -262,7 +265,7 @@ As a comparison with <i>T</i><sub>mwrank</sub>, this algorithm is full of brute-
 <td>9:30</td>
 <td><a href="https://www.uni-math.gwdg.de/viada/"><b>Evelina Viada</b></a></td>
 <td><div onclick="tog('viada');" class="talk">
-<i>On the torsion and rational points of some curves</i>
+<i>On the torsion and rational points of some curves</i> <small>(<a href="slides/Viada.pdf" target="_blank"><b>slides</b></a>)</small>
 <p id="viada" class="abstract hidden">
 I will present an overview of some explicit methods in the context of the Manin-Mumford and Mordell Conjecture. This  allows to give examples of  families of curves whose rational and torsion points can be explicitly determined.
 </p>
@@ -273,7 +276,7 @@ I will present an overview of some explicit methods in the context of the Manin-
 <td>11:15</td>
 <td><a href="https://sites.google.com/site/damarishomepage/"><b>Damaris Schindler</b></a></td>
 <td><div onclick="tog('schindler');" class="talk">
-<i>Density of rational points near manifolds</i>
+<i>Density of rational points near manifolds</i> <small>(<a href="slides/Schindler.pdf" target="_blank"><b>slides</b></a>)</small>
 <p id="schindler" class="abstract hidden">
 Given a bounded submanifold <i>M</i> in &reals;<sup><i>n</i></sup>, how many rational points with common bounded denominator are there in a small thickening of <i>M</i>? Under what conditions can we count them asymptotically as the size of the denominator goes to infinity? I will discuss some recent work in this direction and arithmetic applications such as Serre's dimension growth conjecture as well as applications in Diophantine approximation. For this I'll focus on joint work with Shuntaro Yamagishi, as well as joint work with Rajula Srivastava and Niclas Technau.
 </p>
