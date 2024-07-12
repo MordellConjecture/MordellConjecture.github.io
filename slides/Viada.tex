@@ -1,0 +1,1047 @@
+% \documentclass[handout]{beamer}
+\documentclass[12pt]{beamer}
+\usepackage{geometry}
+\geometry{paperheight=4.5in,paperwidth=8in} 
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+\beamertemplatetransparentcovereddynamicmedium
+\beamertemplateshadingbackground{white!70}{blue!15} 
+\usepackage{verbatim} 
+\usepackage{amsmath,amssymb}
+\usepackage{pslatex}
+\usepackage{comment} 
+\usepackage{tcolorbox} 
+\usepackage{indentfirst,wasysym}
+\usepackage{etex}
+\usepackage[all]{xy}  
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amsthm}
+\usepackage{xypic}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{epsfig}
+%\usepackage{enumitem}
+\usepackage{calc}
+
+\usepackage{color, euro, euscript, amsmath, latexsym,  amssymb, amscd}
+\usepackage[all]{xy}
+
+\oddsidemargin=-0.6cm
+
+\newcommand{\HL}[1]{
+	\temporal<+| handout:0>{\vfill}{
+		\begin{tcolorbox}
+			#1
+		\end{tcolorbox}}{#1}}
+
+\usetikzlibrary{shapes.multipart, shapes.arrows}
+\tikzstyle{start}=[to path={(\tikztostart.#1) -- (\tikztotarget)}]
+
+\tikzset{
+	invisible/.style={opacity=0},
+	visible on/.style={alt={#1{}{invisible}}},
+	alt/.code args={<#1>#2#3}{%
+		\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}%
+	}
+}
+
+\newcommand{\multi}[3][A]{\arrow[#2, phantom, "#3"{name=#1, inner sep=1ex}]}
+
+\newcommand{\ze}{\mathbb{Z}}
+\newcommand{\codim}{{\rm{codim}}}
+
+
+\newcommand{\qe}{\mathbb{Q}}
+
+\newcommand{\oqe}{\overline{\mathbb{Q}}}
+
+\newcommand{\ce}{\mathbb{C}}
+
+
+\newcommand{\Ci}{\mathcal{C}}
+\newcommand{\Di}{\mathcal{D}}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{ex}{Exercise}
+\newtheorem{conj}{Conjecture}
+\newtheorem{cor}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{prop}{Proposition}
+
+\definecolor{orange}{rgb}{1,0.4,0}
+
+
+\definecolor{rosa}{rgb}{0.8,0.6,0}
+\definecolor{yellowd}{rgb}{1,0.9,0}
+%\definecolor{bluep}{rgb}{0.5,0.4,0.8}
+%\definecolor{blues}{rgb}{0,0.8,1}
+\definecolor{magenta}{rgb}{1,0,1}
+\definecolor{blue}{rgb}{0,0.8,0.6}
+
+
+
+%\title[]{The Mordell conjecture 100 years later}
+
+\author{{\textbf{Evelina Viada}}\\ Georg-August University G\"ottingen}
+
+
+\title[]{On the Torsion and rational Points of some Curves  }
+
+
+\date[]{ {The Mordell conjecture 100 years later}\\MIT, July 8-12, 2024}
+%\usetheme{Singapore}   
+\usetheme{Madrid}   
+\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber\hspace{0.5cm}}}}}
+\usecolortheme{rose}
+
+\begin{document}  
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Let $C$ be an algebraic curve  over $\mathbb{Q}$ embedded in its Jacobian $J_C$ \only<3->{\textcolor{red}{(in an abelian variety $A$)}}.
+
+\begin{tcolorbox}\begin{itemize}
+\item
+Task 1 : find $C_{Tor}$  the torsion points of $J_C$ \only<3->{\textcolor{red}{(of  $A$)}} that lie on $C$.   
+
+\only<2-> {Explicit Manin Mumford Conjecture} 
+
+\item Task  2 : find $C(\mathbb{Q})$ the set of rational points of $C$.
+
+\only<2->{Explicit Mordell Conjecture}
+\end{itemize}
+
+%\vspace{0.5cm}
+
+%\pause
+\end{tcolorbox}
+
+\vspace{0.5cm}
+%\pause
+%\pause
+\onslide<4->{
+ \begin{alertblock} {QUESTION: Can we do that?} 
+
+	\onslide<5->{ANSWER TO TASK 2: \quad NO}
+
+	\hfill \onslide<6->{OPTIMISTIC ANSWER: \quad NOT YET, SOMETIMES}
+	
+	\vspace{0.2cm}
+	
+	\onslide<7->{ANSWER TO TASK 1: \quad YES}
+	
+	\hfill \onslide<8->{REALISTIC ANSWER: \quad AT LEAST IN PRINCIPLE}
+ \end{alertblock}}
+ 
+
+\end{frame}
+
+
+\begin{frame}{Example to Task 1: Find the torsion \\ (with R. Pengo)}
+\begin{example} Consider $\mathbb{A}^2\times\mathbb{A}^2$ with coordinates  $(x_1,y_1)\times (x_2,y_2)$, and the family of curves (or their projective closures):
+\[
+	\mathcal{C}_1(a,b) \colon \begin{cases}
+		
+		y_1^2 &= x_1^3 -16 x_1 + 16 \\
+		y_2^2 &= x_2^3 -16 x_2 + 16\\
+		a y_2 &= b x_1 	\end{cases}
+\]
+for every two non-zero integer numbers $a,b$. Then $\mathcal{C}_1(a,b)$ is the affine part of a curve embedded in $E^2$, where $E \colon y^2 z = x^3 - 16 x z^2 + 16 z^3$. 
+
+\pause
+
+\begin{alertblock}
+{The torsion subset $\mathcal{C}_1(a,b)_{Tor}$ is exactly}
+\[
+\Ci_1(a,b)_{Tor}=\{(0_E,P) : P \in E[2](\overline{\mathbb{Q}})\}\subset ExE
+\]
+\end{alertblock}
+\vspace{0.2cm}
+If $\alpha = \sqrt[3]{\frac{8}{9} \sqrt{-111} - 8}$, then $x_P=-\frac{1}{2} \, \alpha {\left(1 + \sqrt{-3}\right)} - \frac{8 \, {\left(1 - \sqrt{-3}\right)}}{3 \, \alpha}, -\frac{1}{2} \, \alpha {\left(1 - \sqrt{-3}\right)} - \frac{8 \, {\left(1 + \sqrt{-3}\right)}}{3 \, \alpha}, \alpha + \frac{16}{3 \alpha}$.
+\end{example}
+\end{frame}
+
+
+
+\begin{frame}{Example to Task 2: find the rational points\\
+with R. Pengo, \\ relying on a method with F. Veneziano}
+\begin{example}
+
+Consider in $\mathbb{A}^2\times\mathbb{A}^2$ with coordinates  $(x_1,y_1)\times (x_2,y_2)$, the family of curves
+\begin{equation*}
+\mathcal{C}_n=\begin{cases}
+\,\,\,\,\,y_1^2&=x_1^3-3x_1-1\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,y_2^2&=x_2^3-3x_2-1\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,y_2&=x_1^n+x_1+1
+\end{cases}
+\end{equation*}
+\pause
+\begin{alertblock}
+{The rational points are exactly} \[
+		\mathcal{C}_{n}(\mathbb{Q}) = \begin{cases}
+			\{(-1,\pm 1,-1,1),(-1,\pm 1,2,1)\}, \ &\text{if}  \ 2 \mid n \\
+			\{(-1,\pm 1,-1,-1),(-1,\pm 1,2,-1)\}, \ &\text{if} \ 2 \nmid n 
+		\end{cases}
+	\]
+
+\end{alertblock}
+\end{example}
+\end{frame}
+
+
+
+ \begin{frame}{Beyond task 2: (with F. Veneziano)\\
+ Find the  $\qe(\sqrt{-3})$-rational points}
+\begin{example}
+Consider in $\mathbb{A}^2\times\mathbb{A}^2$ with coordinates  $(x_1,y_1)\times (x_2,y_2)$, the curve
+\begin{equation*}
+\mathcal{C}'_6=\begin{cases}
+\,\,\,\,\,y_1^2&=x_1^3+2\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,y_2^2&=x_2^3+2\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,x_1^6&=y_2
+\end{cases}
+\end{equation*}
+\pause
+
+ \begin{alertblock}{The $\mathbb{Q}(\sqrt{-3})$-rational points on $\mathcal{C}'_6$.}
+ Let $\zeta=\frac{-1+\sqrt{-3}}{2}$. Then $\Ci'_6(\qe(\sqrt{-3}))$ is given by:
+ \vspace{-0.2cm}
+  \[ \begin{aligned} \{&(-1,1,-1,1), (-1,-1,-1,1), 
+  (-1,1,-\zeta,1), (-1,-1,-\zeta,1),\\
+  &(-1,1,\zeta+1,1), (-1,-1,\zeta+1,1),
+  (-\zeta,1,-1,1), (-\zeta,-1,-1,1), \\
+  &(-\zeta,1,-\zeta,1), (-\zeta,-1,-\zeta,1),
+  (-\zeta,1,\zeta+1,1), (-\zeta,-1,\zeta+1,1),\\
+  &(\zeta+1,1,-1,1), (\zeta+1,-1,-1,1), 
+  (\zeta+1,1,-\zeta,1),\\ &(\zeta+1,-1,-\zeta,1),
+  (\zeta+1,1,\zeta+1,1), (\zeta+1,-1,\zeta+1,1)
+  \}	
+  \end{aligned} 
+  \]
+  
+ 
+ \end{alertblock}
+ \end{example}
+ \end{frame}
+
+ \begin{frame}{ The  $\qe(\sqrt{-3})$-rational points on the  $\Ci'_n$ }
+ \begin{example}
+Consider in $\mathbb{P}^2\times\mathbb{P}^2$ with coordinates  $(x_1:y_1:z_1)\times (x_2:y_2:z_2)$, the projective closure of
+\begin{equation*}
+\mathcal{C}'_n=\begin{cases}
+\,\,\,\,\,y_1^2&=x_1^3+2\,\,\,\,\,\,\,\,{\rm{elliptic \,\,\, curve}\quad} E \quad {\rm{with \,\,\, CM}}\\
+\,\,\,\,\,y_2^2&=x_2^3+2\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,x_1^n&=y_2
+\end{cases}
+\end{equation*}
+%\pause
+
+ \begin{alertblock}{Let $g=(-1:1:1)$ and  $\rm{End}
+    (E)=\mathbb{Z}[\zeta]$ for $\zeta=\frac{-1+\sqrt{-3}}{2}$. Then $\Ci'_n(\qe(\sqrt{-3}))$ is given by:} 
+     \begin{align*}
+	&\Ci'_n(\qe(\sqrt{-3}))\setminus {(0_E,0_E)} = & & \\
+	&=\{([a] g, [b] g)\mid a=\pm 1, \pm \zeta, \pm \zeta^2\text{ and }b=1,\zeta,\zeta^2\}	&\text{if }n\equiv 0&\pmod 6\\
+	&=\{([a ] g, [b ]g)\mid a=\pm 1\text{ and }b=-1,-\zeta,-\zeta^2\}	&\text{if }n\equiv \pm 1&\pmod 6\\
+	&=\{([a ]g, [b] g)\mid a=\pm 1\text{ and }b=1,\zeta,\zeta^2\}	&\text{if }n\equiv \pm 2&\pmod 6\\
+	&=\{([a] g, [b] g)\mid a=\pm 1, \pm \zeta, \pm \zeta^2, b=-1,-\zeta,-\zeta^2\}	&\text{if }n\equiv 3&\pmod 6,
+     \end{align*}
+ \end{alertblock}
+ \end{example}
+ \end{frame}
+
+
+
+
+
+
+
+
+\begin{frame}{Why is task 1 easier? Quantitative aspects}
+\vspace{-0.2cm}
+\begin{tcolorbox}
+	\begin{description} 
+		\item[Question 1]  Is $C_{Tor}$ a finite set?  (Manin-Mumford Conjecture).
+		
+\only<2->{
+	\item[Answer 1] YES, if the genus of $C$ is at least $2$ \\
+	($C$ non-torsion in $A$, i.e. not the translate of an elliptic curve by a  torsion point.) \newline (Raynaud's Theorem). 
+}
+
+\begin{itemize} \item
+\only<3->{ \textcolor{red}{ If we can bound the cardinality of  $C_{Tor}$, then we can find $C_{Tor}$ (in principle)} }
+
+\item \only<4->{ \textcolor{red}{The height of the torsion is $0$ }}
+\end{itemize}
+
+ \item[Question 2] Is  $C(\mathbb{Q})$  a finite set? (Mordell Conjecture)
+
+\only<2->{\item[Answer 2] YES, if the genus of $C$ is at least $2$. \newline (Faltings' Theorem).} 
+
+\begin{itemize} \item
+\only<3->{ \textcolor{red}{If we can bound  the cardinality of   $C(\mathbb{Q})$  then we CANNOT find  $C(\mathbb{Q})$ } }
+
+\item  \only<4->{  \textcolor{red}{There is no known bound for the height of $C(\mathbb{Q})$ in general.}}
+\end{itemize}
+\end{description}
+\end{tcolorbox}
+
+\only<5->{Northcott's Theorem: there exists a procedure to find the  points of bounded height and bounded degree in $\mathbb{P}^n$}. 
+
+\end{frame}
+
+\begin{frame}{Can we say how many?}
+\vspace{-0.3cm}
+\begin{tcolorbox}\begin{itemize} \item Quantitative/Explicit  Manin Mumford (Galateau \& Martínez's Theorem): 
+$$ \lvert C_{Tor} \rvert \le 4^{(2c(A)+2)g} \deg(C)^2$$ where $g$ is the dimension of $A$ and $c(A)$ is a constant introduced by Serre (to be defined later).
+ 
+ Serre's constant is  explicitly bounded for product of elliptic curves, CM abelian varieties and Jacobians.
+
+\vspace{0.2cm}
+\pause
+
+ \item Quantitative Mordell Conjecture: how explicit should the constants be? What should they depend on?  
+	\begin{itemize}
+		\item explicit dependence on the degree of $C$, the dimension and height of $A$, and the rank of $A(\mathbb{Q})$.
+		\begin{align}
+			\lvert C(\mathbb{Q}) \rvert &\leq (2^{34} \max(1,h_\theta(A)) \cdot \deg(C))^{(\mathrm{rk}(A(\mathbb{Q}))+1) \dim(A)^{20}}. \tag{Rémond + David-Philippon}
+		\end{align}
+		\item for smooth $C$, dependence on the genus of $C$ and rank of $J_C(\mathbb{Q})$, not explicit.
+		\begin{align}
+			\lvert C(\mathbb{Q}) \rvert &\leq c(\dim(J_C))^{1 + \mathrm{rk}(J_C(\mathbb{Q}))} \tag{Dimitrov, Gao, Habegger}
+		\end{align}
+	\end{itemize}
+\end{itemize}
+\end{tcolorbox}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Short sum up of explicit Manin Mumford $\Longrightarrow$ method for example 1}
+Let $k$ be a field and $A \subseteq \mathbb{P}^n$ an abelian variety over $k$.
+
+\pause
+\vspace{0.5cm}
+For $G_k := \mathrm{Gal}(\overline{k}/k)$ and $\rho_A \colon G_k \to \mathrm{Aut}_\mathbb{Z}(A_\text{tors}) \cong \mathrm{GL}_{2 g}(\widehat{\mathbb{Z}})$, define Serre's constant as 
+\begin{equation*} \label{eq:Serre_constant}
+	c(A) := [\mathcal{H}_A(\widehat{\mathbb{Z}}) \colon (\rho_A(G_k) \cap \mathcal{H}_A(\widehat{\mathbb{Z}}))]
+\end{equation*} where with $\mathcal{H}_A(\widehat{\mathbb{Z}}) \cong \widehat{\mathbb{Z}}^\times$ we mean the homotheties.
+
+\pause
+\vspace{0.5cm}
+  Let  $V$ be an algebraic subvariety $A$ and let
+ $\delta(V)$  be the smallest $d$ such that $V$ is the intersection of hypersurfaces of degree at most $d$. 
+ 
+ Define $V^j_\text{tor}$ to be  the equidimensional component of dimension $j$ in $V_\text{tor}$. So
+ $$V_\text{tor} := \overline{V \cap A_{\text{tor}}} = \bigcup_{j=0}^{\dim V} V_{\text{tor}}^j.$$
+ 
+ Manin-Mumford for Varieties: The $V_{\text{tor}}^j$ are torsion varieties, i.e.  union of components of algebraic subgroups. 
+\end{frame}
+
+
+\begin{frame}{ Explicit Manin-Mumford}
+ Work of \textbf{Galateau \& Mart\`inez (2017)} shows that:
+  $$ deg(V_{\text{tor}}^j) \le ((2g+4)^316^{g (c(A) + 2)})^{(g-j) \dim(V)} \cdot \deg(A) \cdot \delta(V)^{g-j},$$ where $c(A)$ is Serre's constant.
+
+\pause
+\vspace{0.5cm}
+Estimates for $c(A)$:
+\begin{itemize}
+\item If $E$ has CM and $j(E) \neq 0,1728$, work of \textbf{Campagna \& Pengo (2022)} gives explicit bounds. \newline In particular, if $E$ is defined over $\mathbb{Q}$ then
+ $c(E)= 2$. 
+\item if $E$ non-CM then work of \textbf{Lombardo (2015)} gives an explicit bound. \newline If $E$ is defined over $\mathbb{Q}$, then
+$c(E) \le e^{1.9 10^{10}} \max\{1,h(E)\}^{12395}$.\pause
+\item If $A$ is a CM abelian variety then work of \textbf{Eckstein (2005)} gives  $c(A)\le [k: \mathbb{Q}]3^{5g^2}$. \pause 
+\item For any Jacobian  $A=J_C$, work of \textbf{Buium (1996)} gives a method to find an explicit bound. \pause
+\item $c(A_1 \times \dots \times A_r) = \max\{c(A_1),\dots,c(A_r)\}$.
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Our example}
+\begin{itemize}
+\item Choose a \textit{Serre curve} $E$, that means an elliptic curve with $c(E)=1$. (Example $E \colon y^2  = x^3 - 16 x + 16 $) \pause
+\item Compute $\delta(\mathcal{C}_1(a,b)))\le 
+	\deg(\mathcal{C}_1(a,b)) = \deg(\mathcal{C}_1) = 15$ and $g(\mathcal{C}_1(a,b)) = 6$.\pause
+\item Go through Galateau-Mart\`inez's proof to keep constants as small as possible.\pause
+\item Find that $|\mathcal{C}_1(a,b)_{Tor}|\le 17775$. \newline \indent\hspace{0.5cm} Note that the general bound is independent of $h(C)$ thus this bound holds for all  curves $\mathcal{C}_1(a,b)$\pause
+\item Use the fact that if $P$ lies on $\mathcal{C}_1(a,b)$ then all its conjugates do, to find that $\mathrm{ord}(P)\le 241$. \pause
+\item Use the division polynomials to find all the torsion points of order at most $241$.\pause
+\item Check if they are on any of our curves, that is if the ratio $x_1/y_2$ can be rational. 
+ \end{itemize}
+
+\end{frame}
+%\begin{frame}
+%\begin{itemize}
+	%\item we compute all the division polynomials $\phi_{M,E}(x)$ associated to the elliptic curve $E$ and to every integer $M \leq 15 \cdot C_E$;
+	%\item we compute all the minimal polynomials $\psi_{M,E}(y) := \mathrm{Res}_x(y^2-x^3-A x - B,\phi_{M,E}(x))$ for the $y$-coordinates of torsion points of $E$, where again $M \leq 15 \cdot C_E$;
+%	\item we compute the polynomials $\xi_{M,E}(t) := \mathrm{Res}_u(\phi_{M,E}(u),\psi_{M,E}(u \cdot t))$ whose roots are the ratios between the roots of $\phi_{M,E}$ and the roots of $\psi_{M,E}$;
+%	\item for every $M \leq 15 \cdot C_E$ we check whether the equation $\xi_{M,E}(t) = 0$ has a rational root $\frac{a}{b}$, which gives rise to a curve $\mathcal{C}_1(a,b)$ containing a torsion point of order $M$.
+%\end{itemize}
+
+%\end{frame}
+
+\begin{frame}
+In conclusion: 
+\begin{itemize}
+	\item in many cases (such as CM abelian varieties, Jacobians and products of elliptic curves), Serre's constant $c(A)$ can be bounded explicitly; \pause
+	\item for any variety $V$ embedded in  an abelian variety $A$ for which Serre's constant $c(A)$ is bounded explicitly, we have an algorithm to find $V_{tor}$. \pause
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{PROBLEM:} \qquad This algorithm might not be implementable, given the current computational constraints.
+
+\end{frame}
+
+
+\begin{frame}{Irreducible curve  $C$  in an abelian variety $A$ of dimension $N$}
+	Given a set $S \subseteq A$ with some properties, when is $S \cap C$ finite ?
+	
+	\pause
+	\vspace{0.2cm}
+	\begin{center}
+		\scalebox{0.8}{
+			\begin{tikzcd}[ampersand replacement=\&,column sep=1cm,/tikz/column 3/.append style={anchor=base west},background color=bg,row sep=0.1cm]
+				|[visible on=<2->]| \fbox{$S_0 = \bigcup_{dim B=0} B $} \&  |[visible on=<3->]| \parbox{8cm}{\centering \fbox{\parbox{6cm}{\centering Manin-Mumford \\ $C$ non-torsion $\Rightarrow S_0\cap C$ finite}} \\[0.2cm] \uncover<10->{\raggedleft \textcolor{blue}{explicit Manin-Mumford \\ (see previous discussion)}}} \& |[visible on=<6->]| \parbox{8cm}{\centering \fbox{\parbox{7cm}{\centering Mordell-Lang \\ $S \leq A$, $\mathrm{rk}(S)$ finite, $C$ \ non-translate \\ $\Rightarrow$ $S \cap C$ finite}} \\[0.2cm] \uncover<9->{\raggedright \textcolor{red}{effective/explicit Mordell-Lang}}} \arrow[ddd,Rightarrow,"\text{Mordell-Weil} ",visible on=<7->]
+				\arrow[l,Rightarrow,yshift=0.5cm,visible on=<6->,"\mathrm{rk}(S_0) = 0" swap]
+				\arrow[l,Rightarrow,visible on=<10->,yshift=-0.7cm]\\
+				|[visible on=<2->]| \fbox{$S_1 = \bigcup_{dim B \leq 1} B$} \& \& \\
+				\vdots \& \& \\
+				|[visible on=<2->]| \fbox{$S_{N-2} = \bigcup_{dim B \leq N-2} B $} \&
+				|[visible on=<4->]| \parbox{8cm}{\centering \uncover<8->{\textcolor{red}{effective/explicitly bounded height} \\[0.1cm]}  \fbox{\parbox{7cm}{Torsion Anomalous Conjecture (TAC) \newline \centering $C$ weak-transverse $\Rightarrow S_{N-2} \cap C$ finite}}} \arrow[uuur,Rightarrow,visible on=<6->,xshift=1.5cm,yshift=-0.7cm,end anchor={[xshift=0.5cm]south west},shorten >= -5em] \arrow[uuur,Rightarrow,color=red,xshift=0.5cm,visible on=<9->] \& |[visible on=<7->]| \parbox{8cm}{\centering \fbox{\parbox{5cm}{\centering Mordell \\ $g(C) \geq 2 \Rightarrow C(\mathbb{Q})$ finite }} \\[0.2cm] \uncover<11->{\textcolor{red}{explicit Mordell for transverse $C \subseteq A$, when $\mathrm{rk}(A(\qe)) < \dim(A)$}}} \\
+				|[visible on=<2->]| \fbox{$S_{N-1} =  \bigcup_{dim B \leq N-1} B $} \& |[visible on=<5->]|\fbox{\parbox{5cm}{$C$ transverse $\Rightarrow$ $S_{N-1}\cap C$ has \\ \uncover<11->{\textcolor{red}{explicitly}} bounded height}} \arrow[ur,color=red,Rightarrow,visible on=<11->,shorten >= -5em] \& |[visible on=<12->]| \parbox{8cm}{\centering \textcolor{blue}{Example: $C \subseteq E^N$ transverse, $\mathrm{rk}(E(K)) < N$ \ $\Rightarrow$ \ $h(C(K)) \leq$ an explicit constant. \\ If this constant is small, one can find $C(K)$ \\ (see previous examples).}}
+			\end{tikzcd}
+		}
+	\end{center}
+	
+	\vspace{0.2cm}
+	\pause \pause
+	\begin{description}[labelwidth=\widthof{\bfseries Recall: }]
+		\item[Recall:] Weak-transverse: irreducible $V\not\subset B$ for any proper algebraic subgroup $B \subsetneq A$. \\
+		Transverse: irreducible $V \not\subset B+q$ for  any translate  of $B$ by  a point $q \in A$.
+	\end{description}
+\end{frame}
+
+
+
+
+\begin{frame}{\bf Effective Methods for Faltings Theorem/ Mordell Conjecture}
+\begin{alertblock}{}
+The result of Faltings is not effective, in the sense that it does not give any method for finding the rational points on $C$.
+
+
+This is due to the non existence of an effective bound for the height of the points in $C(\qe)$ in general.
+\end{alertblock}
+ \begin{tcolorbox}{\Large \underline{\bf \textcolor{blue}{Effective Methods}}}
+\begin{itemize} 
+
+\item The method of {\bf Chabauty-Coleman}  and the {\bf quadratic Chabauty and Kim} program.
+
+A significant number of examples of curves in general of small genus and restricted to the condition that the $\mathbb{Q}$-rank  of the Jacobian is strictly smaller than the genus of the curve (Bruin, Flynn, Poonen, Stoll, \dots). Exception for the split Cartan modular curve of level 13, and other modular curves whose rank is equal to the genus of the curve (Balakrishnan, Dogra, M\"uller, Tuitman, Vonk, \dots). \\
+
+%\pause
+
+\item  The {\bf  {Manin-Dem'janenko }}method (our method relies on the same starting principle).
+
+Families of examples of genus $2$ or $3$ and $\qe$-rank $1$ or $2$ and some other condition for instance a factor of the Jacobian given by $y^2=x^3+a^2 x$, with $a$  square-free integer. (Kulesz, Girard, Matera, Silverman, Schost...)
+
+\end{itemize}
+\end{tcolorbox}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Explicit TAC $\Rightarrow$ method for Example 2}
+
+\pause
+\begin{thm}[Torsion Anomalous Conjecture for Curves]
+
+Let $C$ be weak-transverse in $E^N$. Then the set  $$C\cap S_{N-2}=C\cap \cup_{\dim B\le N- 2}B \,\,\,\,\,\,\,\,\,{\rm is\,\,\,\,finite}.$$
+
+Let $C$ be transverse in $E^N$. Then the set  $$C\cap S_{N-1}=C\cap \cup_{\dim B\le N-1 }B \,\,\,\,\,\,\,\,\,{\rm has \quad \textcolor{red}{explicitly} \quad bounded\,\,\,\,height}.$$
+
+
+%Here $B$ ranges over all algebraic subgroups of codimension at least $2$.
+\end{thm}
+\pause
+\begin{remark}
+The original proof of {\bf  Bombieri-Masser-Zannier (1999)} in $\mathbb{G}_m^n$ for transverse curves can be adapted to $E^N$ for $E$ with CM, due to the use of a Lehmer Type bound.
+For $E$ without CM one can use a Bogomolov Type bound and Vojta's inequality in a non effective way. 
+To get the examples we make explicit the second part with a different approximation method that keeps the constants small. 
+This implies  the effective Mordell Conjecture  for  $C$  transverse in $E^N$ and $\mathrm{rk} E(\mathbb{Q})\le N-1$. Thus we can in principle find the rational points of such curves. 
+
+For $C$ weak-transverse in $A$, the finiteness of $C\cap S_{N-2}$ is proven by {\bf Habegger-Pila (2016)} using O-minimality.
+\end{remark}
+
+\end{frame}
+
+
+
+
+
+\begin{frame} {\bf Algebraic subgroups of $E^N$}
+\small\begin{itemize}
+\item   Let $\phi_B\in{ \rm{Mat}}_{r,n}({\rm End}(E))$ be a matrix of rank $r$\pause
+  {\begin{tcolorbox}					\begin{equation*}
+\begin{split}
+\phi_B= 
+ \left(\begin{array}{cccccc}
+b_{11}&\dots &b_{1N}\\
+ \vdots & \vdots&  \vdots\\
+b_{r1}&\dots &b_{rN}
+\end{array}\right): E^N\to & E^r\\
+\phi_B:(x_1,\dots,x_N) \mapsto &({b_{11}}x_1+_E ...+_E{b_{1N}}x_N, 
+\\ \phantom{bsbkbjkdff}&\quad\quad\vdots \quad  \phantom{bfdghdgf}  \quad \vdots
+\\ \phantom{bnnf}&\quad {b_{r1}}x_1+_E...+_E {b_{rN}}x_N)
+\end{split}
+\end{equation*}
+
+
+				\end{tcolorbox}}\pause
+\item $B= \ker \phi_B $ is an algebraic subgroup of $\codim B= r$\pause \\
+%Up to constants, $\deg B$ is the square of the maximal Minor of $\phi_B$.\pause\\
+Minkowski reduction of $\phi_B$ gives $\deg B \approx ||b_1||^2\dots ||b_r||^2$.
+
+
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{From TAC to Mordell}
+{Case $N=2$}
+
+An algebraic subgroup of $E^2$ of dimension 1 is given, up to some torsion, by
+$$B:\{ b_1X_1+b_2X_2=0$$
+
+Consider an algebraic curve $\Ci\subset E^2$, and suppose that $\mathrm{rk}(E(\qe))= 1$, i.e. $E(\qe)=\langle g_1\rangle$
+
+Then a point $P=(P_1,P_2)\in \Ci(\qe)\subset E(\qe)^2$ has the form $$P=(a_1 g_1,a_2 g_1)$$ and therefore $P$ is a point in 
+$$P \in B_P:\{ a_2X_1-a_1X_2=0$$
+
+So $$\forall P \in \Ci(\qe) \,\,\, {\rm then} \,\,\,  P \in \Ci \cap B_P \Rightarrow \Ci(\qe)\subset \Ci \cap \bigcup_{dim B=1} B.$$ 
+ The Theorem tells us that   the set $$\Ci \cap \bigcup_{dim B=1} B \quad {\rm \, has \,\,\, height \,\,\,  {\textcolor{red}{explicitly} }\,\,\, bounded.}$$  Thus   if $E(\qe)$ has rank $1$ and $\Ci \in E^2$ has genus $\ge 2$ then $\Ci(\qe)$ has {\textcolor{red}{explicitly}}  bounded height.
+ \end{frame}
+
+
+\begin{frame}
+
+
+
+%This implies that for a transverse curve $\Ci$ in $E^N$ with $\mathrm{rk}(E(K)) \le N-1$, the set 
+%$\Ci(\qe)$ has height explicitly  bounded.
+
+\begin{alertblock}{The constraint on the rank is unavoidable with this method.}
+
+If $\Ci\subset E^2$ and $E$ has  rank $2$ with $E(\qe)=\langle g_1, g_2\rangle_\mathbb{Z}$ and  $P\in \Ci(\qe)$ then $P=(a_1g_1+a_2g_2, b_1g_1+b_2g_2)$ but you do not have any subgroup $B_P$ that contains $P$. {\Huge $${\frownie}$$}
+
+To remove the hypothesis on the rank is equivalent to prove that for weak-transverse curves $C$ the set $C \cap \left( \cup_{\dim B\le N-2} B \right)$ has  explicitly bounded height (Explicit TAC implies Explicit Mordell).
+
+If $\Ci_0$ is transverse in $E^2$ and $E(\qe)=\langle g_1,\dots, g_r\rangle $ then $P=(P_1,P_2)\in \Ci(\qe) $ is given by $(P_1,P_2)=(a_1g_1+\dots +a_r g_r, b_1g_1+\dots +b_rg_r)$. Consider the curves $C=\Ci_0\times g_1 \times \dots \times g_r $ weak-transverse in $E^{2+r}$.   Thus $(P_1,P_2, g_1,\dots,g_r)$ is a point in  $C$ and in 
+
+$$B_P=\begin{cases}X_1&=a_1 Y_1+\dots +a_rY_r\\X_2&=b_1 Y_1+\dots +b_rY_r
+\end{cases} $$
+
+\end{alertblock}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Main Ingredients for the  Bound on the  Height}
+Let $E$ be an elliptic curve  given in the form
+\begin{equation*}\label{uno}y^2=x^3+Ax+B.\end{equation*}
+with $A$, $B$ algebraic integers.
+
+Let $C(E)=\frac{h_W(\Delta)+3h_W(j)}{4}+\frac{h_W(A)+h_W(B)}{2}+4.$
+
+Let  $\hat{h}$ be the N\'eron-Tate height  on $E^N$. 
+
+ For a curve $\Ci$ let $h(\Ci)$ be the normalised height of $\Ci$.
+ \pause
+ 
+\begin{thm}[Arithmetic B\'ezout Theorem, explicit version of Philippon] Let $V$ and $W$ be irreducible subvarieties of $\mathbb{P}^m$. Let $Z_1, \dots , Z_n$ be the irreducible components of $V\cap W$. Then 
+$$ \sum_{i=1}^n h(Z_i)\le\deg V \,\,h(W) +h(V) \,\, \deg  W +c(m) \deg V\deg W.$$
+\end{thm}
+\end{frame}
+
+\begin{frame}{Essential Minimum}
+\begin{itemize}
+
+ \item[] {\it Definition}: \\
+ $h: V(\overline{\mathbb{Q}})\to \mathbb{R}^+$
+
+\setlength{\unitlength}{1mm}
+\begin{picture}(96,20)
+  \put(10,12){\vector(1,0){85}} 
+   \put(10,8){$0\underbrace{\rule{3cm}{0cm}} \,\,\,\mu(V)$}
+  \put(30,2){\makebox(0,0){$h^{-1} \,\,{\rm non-dense}$}}
+   \put(53,8){$\underbrace{\rule{4cm}{0cm}}$}
+  \put(69,2){\makebox(0,0){$h^{-1} \,\,{\rm dense}$}}
+  \multiput(10,12)(40,0){2}{\circle*{2}}
+\end{picture}
+
+ Essential Minimum $$\mu(V)=\sup\{\varepsilon  : {h^{-1}[0,\varepsilon) } \,\,\,{\rm non-dense\,\,\,in}\,\,\,V\}$$
+\end{itemize}
+
+\begin{thm}[Zhang Inequality]
+
+Let $V$ be an irreducible subvariety of $\mathbb{P}^m$, then
+
+$$\frac{1}{(1+\dim V)} \frac{h(V)}{\deg V}\le \mu(V) \le \frac{h(V)}{\deg V}.$$
+\end{thm}
+\end{frame}
+
+\begin{frame}{Diophantine Approximation}
+
+\begin{thm}[Minkowski Convex Body Theorem]
+Let $\Lambda$ be a lattice of volume $\Delta$ in $\mathbb{R}^n$ and 
+  $S\subset \mathbb{R}^n$  a convex body, symmetric with respect to the origin. If the volume of $S$ is $> 2^n \Delta$ then $S$ contains at least one lattice point other than the origin. 
+\end{thm}
+\end{frame}
+
+
+
+\begin{frame}{Main results on bounded Height}
+\begin{thm} [Veneziano, V. 2022 (generalization of N=2 Checcoli, Veneziano, V. 2018)]
+  Let $E$ be a non-CM elliptic curve   and let $\Ci$ be a curve transverse  in $E^N$. Then all the points $P$  in  $\Ci\cap S_{N-1}$ have N\'eron-Tate height explicitely bounded as follows:
+   \begin{equation*}
+      \hat h(P)\leq D_1(N)\cdot h(\Ci)(\deg\Ci)^{N-1} +D_2(N,E)(\deg\Ci)^N+D_3(N,E).
+\end{equation*}
+The constants are given by:
+\begin{align*}
+ %\cuno(N,E)&=\frac{N(N-1)^3 3^{N-1}(2N-2)!^2 (N)!\abs{D_K}^{N-1}}{2^{2N-4}},\\   
+    D_1(N)&=4N!\left(\frac{N^2 (N-1)^2 3^N}{4^{N-3}}N! (N-1)!^4\right)^{N-1},\\
+  D_2(N,E)&=D_1(N)\left(N^2C(E)+3^{N}\log 2\right),\\
+  D_3(N,E)&=(N+1)C(E)+1,   
+  C(E)
+ \end{align*}  
+  \end{thm}
+  
+  %The rank of a point $P$ is the minimal dimension of an algebraic subgroup containing $P$.
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\begin{thm} [Veneziano, V. 2022]
+  Let $E$ be an elliptic curve with Complex Multiplication by the field $K$ and let $\Ci$ be a curve transverse  in $E^N$. Then all the points $P$ in $\Ci\cap S_{N-1}$ have N\'eron-Tate height explicitely bounded as follows:
+   \begin{equation*}
+      \hat h(P)\leq C_1(N,E)\cdot h(\Ci)(\deg\Ci)^{N-1} +C_2(N,E)(\deg\Ci)^N +C_3(N,E).
+\end{equation*}
+The constants are given by:
+\begin{align*}
+ c(N)&=N!\left(N\cdot N!\cdot (2N)!^2\right)^{N-1},\\
+  C_1(N,E)&=c(N)f^N|D_K|^{N^2-\frac{3}{2}N+1}+1,\\
+   C_2(N,E)&=c(N)f^N|D_K|^{N^2-\frac{3}{2}N+1}\left(N^2C(E)+3^{N}\log 2+1\right),\\
+   %\Dquattro(N,E)&=\frac{(N-1)^2 3^{N-1}(N-1)!}{\cuno(N,E)},\\
+  C_3(N,E)&=N(N+1)C(E)+3^{N}\log 2+1.
+   %\cuno(N,E)&=\frac{N(N-1)^3 3^{N-1}(2N-2)!^2 (N)!\abs{D_K}^{N-1}}{2^{2N-4}},\\   
+ \end{align*}  
+ where $D_K$ is the discriminant of the field of complex multiplication and $f$ is the conductor of $\rm{End}(E)$. 
+  \end{thm}
+  
+\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}{Estimates for the height of  curves}
+
+
+\begin{prop}[with Riccardo Pengo] 
+
+Let $\mathcal{C} \subseteq \mathbb{P}^2 \times \mathbb{P}^2$ be the curve
+	\begin{equation*} \label{eq:curve_C}
+		\mathcal{C} \colon \begin{cases}
+			\phantom{P(x_1 \colon y_1 \colon z_1,x_2 \colon y_2 \colon z_2)}y_1^2 z_1 &= x_1^3 + A x_1 z_1^2 + B z_1^3 \\
+			\phantom{P(x_1 \colon y_1 \colon z_1,x_2 \colon y_2 \colon z_2)}y_2^2 z_2 &= x_2^3 + A x_2 z_2^2 + B z_2^3 \\
+			\phantom{y_1^2 z_1}f(x_1 \colon y_1 \colon z_1,x_2 \colon y_2 \colon z_2) &= 0,
+		\end{cases}
+	\end{equation*}
+	where $f \in  \mathbb{Z}[x_1 \colon y_1 \colon z_1,x_2 \colon y_2 \colon z_2]$ is a bi-homogeneous polynomial of bi-degree $(\delta_1(f),\delta_2(f))$. Then
+	\[
+		h(\mathcal{C}) \leq 9 \cdot \left((\delta_1(f) + \delta_2(f)) \left(\frac{1}{2} \log\left( \frac{\lvert A \rvert^2  + 3 \lvert B \rvert ^2 + 4}{3} \right) + \frac{15}{4}\right) + \frac{1}{2} \log\left( \sum_{v,w} \frac{\lvert a_{v,w}(f) \rvert^2}{(v) (w)} \right)\right)
+	\]
+	where 
+	
+	\[
+		f = \sum_{\substack{v_1 + v_2 + v_3 = \delta_1(f) \\ w_1 + w_2 + w_3 = \delta_2(f)}} a_{v,w}(f) \cdot x_1^{v_1} y_1^{v_2} z_1^{v_3} x_2^{w_1} y_2^{w_2} z_2^{w_3} \in \mathbb{Z}[x_1 \colon y_1 \colon z_1,x_2 \colon y_2 \colon z_2]
+	\] and  we denote by $(b) := \frac{(b_1+\dots+b_k)!}{b_1! \cdots b_k!}$ for $b\in \mathbb{N}^k$.
+
+\end{prop}
+	
+	
+
+\end{frame}
+
+
+\begin{frame}{Producing Families of Curves of increasing Genus s.t. we can find $C(\mathbb{Q})$}
+
+\begin{alertblock} {Choose an elliptic curve $E$  such that $\rm{rk} \,E({\mathbb{Q}})=1$. }\end{alertblock}
+
+ For example
+\[
+		\begin{aligned}
+			E_1 \colon y^2 &= x^3 - x + 1 & E_4 \colon y^2 &= x^3 + 3 x + 1 \\
+			E_2 \colon y^2 &= x^3 + x - 1 & E_5 \colon y^2 &= x^3 - 3 x - 1 \\
+			E_3 \colon y^2 &= x^3 + 2 x + 1 & E_6 \colon y^2 &= x^3 + 4 x + 1 \colon 
+		\end{aligned}
+	\]
+
+
+\begin{remark}
+The method works for any number field $K$ such that ${\rm{rk} }\,\,E(K)=1$.
+
+ We do not need to have the generator of $E(K)$ even if this speeds up the implementation.
+\end{remark}
+\end{frame}
+\begin{frame}{The Family $\Ci_n$}
+\begin{alertblock}{
+Cut in $ExE$ a (family) of curves with an extra polynomial.}
+\end{alertblock}
+
+
+For example
+\begin{equation*}
+\mathcal{C}_{n,1}=\begin{cases}
+\,\,\,\,\,y_1^2&=x_1^3-x_1+1\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,y_2^2&=x_2^3-x_2+1\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,y_2&=x_1^n+x_1+1
+\end{cases}
+\end{equation*}
+
+\pause
+For other $E_i$, we can define  $\mathcal{C}_{n,i}$ to be the curve in $E_i\times E_i$ cut by $y_2=x_1^n+x_1+1$.
+\pause
+\begin{alertblock}{Compute the invariants $h(C)$ and $\deg C$}
+\end{alertblock}
+The $\Ci_n$ have genus $n+5$, degree $\deg \Ci_n= 6n+9$ and height:
+\[
+	h((\mathcal{C}_n)) \leq 9 \left((n+1) \left( \frac{1}{2} \log\left( \frac{\lvert A \rvert^2 + 3 \lvert B \rvert^2 + 4}{3} \right) + \frac{15}{4} \right) + \frac{1}{2} \log\left( 3 + \frac{1}{n} \right) \right).
+	\]
+
+\end{frame}
+
+\begin{frame}
+
+\begin{alertblock}{Plug the invariants in our non-CM Theorem\\
+ to get
+$h(P)\le$ Number}\end{alertblock}
+
+For every point $P\in \Ci_n(\qe)$ we have
+$$\hat h(P)\leq 81193 n^2 + 238012 n + 174343.$$
+
+
+
+\pause
+
+ \begin{alertblock} {For a family we need  a result of Stoll} \end{alertblock}
+
+ 
+ This  shows that it suffices to check the curves for $n\le$ Number  and the integral points.
+  
+ For our family only the curves with $n\leq 19$ need to be checked.
+
+\pause
+
+\begin{alertblock}{Use Belabas Altgorithm to make a computer search and obtain $C({\mathbb{Q}})$}  \end{alertblock}
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{alertblock}{The affine rational points on the families   $\mathcal{C}_{n,i}(\mathbb{Q}) $ are}
+	\[
+		\mathcal{C}_{n,i}(\mathbb{Q}) = \begin{cases}
+			\left\{ \begin{aligned}
+				&((-1,\pm 1),(0,-1)),((-1,\pm 1),\\ &(\pm 1,-1)),((0,\pm 1),(0,1)), ((0,\pm 1),(\pm 1,1)),\\ &((5,11),(5,11))
+			\end{aligned}\right\}, \ &\text{if} \ i = 1 \ \text{and} \ n = 1 \\
+			\left\{\begin{aligned}
+				&((0,\pm 1),(0,1)),((0,\pm 1),(\pm 1,1)),\\ &((-1,\pm 1),(0,1)),((-1,\pm 1),(\pm 1,1))
+			\end{aligned}\right\}, \ &\text{if} \ i = 1 \ \text{and} \ 2 \mid n \\
+			\left\{\begin{aligned}
+				&((0,\pm 1),(0,1)),((0,\pm 1),(\pm 1,1)), \\ &((-1,\pm 1),(0,-1)),((-1,\pm 1),(\pm 1,-1))
+			\end{aligned}\right\}, \ &\text{if} \ i = 1, \ n \geq 3 \ \text{and} \ 2 \nmid n \\
+			\{((1,\pm 1),(2,3))\}, \ &\text{if} \ i = 2 \\
+			\{((0,\pm 1),(0,1))\}, \ &\text{if} \ i = 3, 4 \\
+			\{((-1,\pm 1),(-1,1)),((-1,\pm 1),(2,1))\}, \ &\text{if} \ i = 5 \ \text{and} \ 2 \mid n \\
+			\{((-1,\pm 1),(-1,-1)),((-1,\pm 1),(2,-1))\}, \ &\text{if} \ i = 5 \ \text{and} \ 2 \nmid n \\
+			\{((0,\pm 1),(0,1)),((4,\pm 9),(4,9))\}, &\text{if} \ i = 6 \ \text{and} \ n = 1 \\
+			\{((0,\pm 1),(0,1))\}, &\text{if} \ i = 6 \ \text{and} \ n \neq 1
+		\end{cases}
+	\]\end{alertblock}
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{The CM case (with Veneziano)}
+\begin{alertblock} {Choose an elliptic curve $E$  with CM by $K$ such that $\rm{rk}_\mathbb{Q} \, E({K})=2$.  }\end{alertblock}
+
+ For example  $$E : y^2=x^3+2.$$ 
+   
+ \pause
+  
+  \begin{alertblock} {$E(\qe(\sqrt{-3}))=\langle (-1:1:1),(-\zeta:1:1)\rangle_{\mathbb{Z}}$ has rank $2$ as an abelian group. }\end{alertblock}
+  
+  
+  
+ \pause
+ 
+
+    \begin{itemize} \item But $E$ has CM by $K=\qe(\sqrt{-3})$.
+    \item  $\rm{End}
+    (E)=\mathbb{Z}[\zeta]$ for $\zeta=\frac{-1+\sqrt{-3}}{2}$ a primitive cube root of $1$ 
+    
+    \item $E(\qe(\sqrt{-3}))=\langle (-1:1:1)\rangle_{\mathbb{Z}[\zeta]}$ has $\mathbb{Z}[\zeta]$-rank $1$ with generator  $g=(-1:1:1)$.
+    
+
+
+
+   \item   The  discriminant $D_K=-3$,  $\mathcal{O}_K=\mathbb{Z}[\zeta]$ and the conductor $f=1$.\end{itemize}
+ \end{frame}
+
+\begin{frame}{Define a Family in $E^2$}
+\begin{example}Consider the family \begin{equation*}
+\mathcal{C}'_n=\begin{cases}
+\,\,\,\,\,y_1^2&=x_1^3+2\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,y_2^2&=x_2^3+2\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,x_1^n&=y_2
+\end{cases}
+\end{equation*}
+\end{example}
+
+\pause
+
+ \begin{itemize}
+ \item Compute the invariants: 
+ the  $\Ci'_n$ have genus $4n+2$ and 
+\begin{align}
+\begin{split}
+ \notag  \deg \Ci'_n&= 6n+9,\\
+ \notag  h(\Ci'_n)&\leq 6(2n+3)\log( 3+|A|+|B|).
+\end{split}
+\end{align}
+
+
+ 
+ 
+\item Plug all invariants  in our CM theorem  to get  that for $P\in\Ci'_n(\qe(\sqrt{-3}))$ the height
+$$\hat{h}(P)\leq 644391 \cdot (2n+3)^2+28
+$$
+
+\item Generalize Stoll's result to number fields to obtain that for $n\ge 21$ then $\Ci'_n(K)=\Ci'_n(\mathcal{O}_K)$.
+
+\item Let  the search althgorithm of Allombert run to find the points on $\Ci'_n(K)$ for $n\le 20$.
+\end{itemize}
+\end{frame}
+
+  \begin{frame}{ The  $\qe(\sqrt{-3})$-rational points on the  $\Ci'_n$ }
+\begin{equation*}
+\mathcal{C}'_n=\begin{cases}
+\,\,\,\,\,y_1^2&=x_1^3+2\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,y_2^2&=x_2^3+2\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,x_1^n&=y_2
+\end{cases}
+\end{equation*}
+%\pause
+
+ \begin{alertblock}{Let $g=(-1:1:1)$. Our explicit bound on the height of $\Ci'_n(\qe(\sqrt{-3}))$  implies:}   
+     \begin{align*}
+	&\Ci'_n(\qe(\sqrt{-3}))\setminus\{(O,O)\} = & & \\
+	&=\{(a g, b g)\mid a=\pm 1, \pm \zeta, \pm \zeta^2\text{ and }b=1,\zeta,\zeta^2\}	&\text{if }n\equiv 0&\pmod 6\\
+	&=\{(a g, b g)\mid a=\pm 1\text{ and }b=-1,-\zeta,-\zeta^2\}	&\text{if }n\equiv \pm 1&\pmod 6\\
+	&=\{(a g, b g)\mid a=\pm 1\text{ and }b=1,\zeta,\zeta^2\}	&\text{if }n\equiv \pm 2&\pmod 6\\
+	&=\{(a g, b g)\mid a=\pm 1, \pm \zeta, \pm \zeta^2, b=-1,-\zeta,-\zeta^2\}	&\text{if }n\equiv 3&\pmod 6,
+     \end{align*}
+ \end{alertblock}
+ \end{frame}
+
+
+
+
+\begin{frame}{Examples in $E^3$: find $C(\mathbb{Q})$ for $C\subset E^3$} 
+\begin{itemize}
+
+\item Choose $E$ such that $\rm{rk}\, E(\mathbb{Q})=2$ and cut $C$ on $E^3$ with two extra polynomials.
+
+\item Choose two polynomials that cut a transverse $C \subset E^N$ and so that $\deg C$ and $h(C)$ are small. 
+
+\item Estimate $h(C)$ and $\deg C$
+
+\item Plug the estimates in our theorem to obtain $\hat{h}(P)\le$ Number
+\end{itemize}
+
+\pause
+
+\begin{alertblock}{In general the bound is not implementable }\end{alertblock}
+
+\pause
+
+Try to improve the bound choosing a special $E$, for instance such that
+the generators of $E(\qe)$  are almost orthogonal, 
+ sharp comparison of $h(P)$ and $\hat{h}(P)$, some new ideas .... to improve the bound to 
+$$\hat{h}(P)\le 10^{15}$$
+
+Then  it is implementable.
+
+\pause
+This gives infinitely many possible master/PhD projects {\Large$\smiley$}
+\end{frame}
+
+
+
+
+\begin{frame}{Irreducible variety $V$ embedded in $A$}\begin{tikzcd}[ampersand replacement=\&,column sep=6cm,background color=bg,row sep=0.5cm,nodes in empty cells]
+		|[visible on=<1->]| \fbox{\parbox{8cm}{ \centering Manin-Mumford \\ $V$ non-torsion $\Rightarrow$ $S_0 \cap V$ non-dense}} \& \only<3->{\multi[A,align=center]{ddd}{\parbox{8cm}{\textbf{Remark:} $\mathrm{codim}(V \cap B)$ is expected to be $\mathrm{codim}(V) + \mathrm{codim}(B)$. \\ If $C$ is a weak-transverse curve, then $C \not\subseteq B$ 
+					\[
+					\begin{aligned}
+						\dim(B) = N-1 &\Rightarrow \text{expect points in } C \cap B \\
+						\dim(B) < N-1 &\Rightarrow \begin{cases}
+							&\text{expect} \ C \cap B = \emptyset \\ &\text{otherwise }C-\text{anomalous } 
+						\end{cases}
+					\end{aligned}
+					\]
+					If $V$ is a weak-transvese variety,  we expect that for every component $Y$ of $ V \cap B$ 
+					\[\codim(Y) = \codim(V) +\codim (B),\]  otherwise $Y$ is anomalous.}}} \\ 
+		|[visible on=<1->]| \fbox{\parbox{8cm}{\centering Mordell-Lang \\ $S \leq A$, $\mathrm{rk}(S)$ finite, $V$ non-translate \\ $\Rightarrow$ $S \cap V$ non-dense}} \arrow[u,Rightarrow,visible on=<1->] \& |[visible on=<3->]| \\
+		|[visible on=<4->]| \parbox{8cm}{\centering \fbox{\parbox{8cm}{\centering Torsion Anomalous Conjecture (TAC) \\ $V$ weak-transverse \\ $\Rightarrow$ $\bigcup V$-anomalous varieties is non-dense in $V$}} \\[0.1cm] \uncover<5->{(only known for curves, hypersufaces\\ and for $V \subseteq E^N$ of codimension $2$.)}} \arrow[d,Rightarrow,visible on=<4->] \arrow[u,Rightarrow,visible on=<4->] \& |[visible on=<3->]| \\
+		|[visible on=<2->]| \fbox{\parbox{8cm}{\centering weak TAC, $V$ weak-transverse \\ $\Rightarrow$ $V \cap S_{N - \dim(V) - 1}$ non-dense}} \& |[visible on=<3->]|
+	\end{tikzcd}
+\end{frame}
+
+
+
+\begin{comment}
+	\begin{frame}{Ongoing work}
+		
+		\begin{tcolorbox}	
+			\begin{itemize}
+				
+				%\item With Galateau and Pengo we intend  to explicitly describe the distribution of the small points on a variety. 
+				%(The idea is to  generalize to abelian variety a work with Amoroso in Tori which is also used by Galaetau and Martinez for the torsion)
+				
+				\item \textcolor{red}{In relation to TASK 1} 
+				
+				With Lombardo and Pengo we investigate possible uniform bounds for Serre's constant.
+				
+				
+				\pause
+				
+				\item  \textcolor{red}{In relation to TASK 2} 
+				
+				
+				Work on the  Torsion Anomalous Conjecture for varieties.
+				
+				A part for curves and hypersurfaces and subvarieties of  codimension 2 in $E^N$ the TAC is not known.
+				
+				With Pengo we obtained some partial results for transverse varieties in $E^N$.
+				
+				
+			\end{itemize}
+		\end{tcolorbox}	
+	\end{frame}
+\end{comment}
+
+\begin{frame}{Toto Point = Point pools}
+\begin{ex}
+Define a curve $C$ of genus $\ge2$ in $E^2$ with $E$ an elliptic curve of rank 1 such that $C$ has a rational point of large height.
+Large height means for instance $\ge 10 ( h(C) + \deg C)$, or $\gg ( h(C) + \deg C)^\alpha$ with $1 < \alpha < 2$. 
+\end{ex}
+\end{frame}
+
+\begin{frame}
+\centerline{\Huge{THANK YOU}}
+\end{frame}
+
+
+
+\end{document}
+\begin{frame}
+ \begin{center}
+   \includegraphics[scale=0.35]{Proof1}
+  \end{center}
+
+\end{frame}
+\begin{frame}
+ \begin{center}
+   \includegraphics[scale=0.35]{Proof2}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+ \begin{center}
+   \includegraphics[scale=0.35]{Proof3}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+ \begin{center}
+   \includegraphics[scale=0.35]{Proof4}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame} { An older example with Checcoli and Veneziano}
+\begin{example}
+\begin{equation*}
+\mathcal{D}_n=\begin{cases}
+\,\,\,\,\,y_1^2&=x_1^3+x_1-1\,\,\,\,\,\,\,\,\\
+\,\,\,\,\,y_2^2&=x_2^3+x_2-1\,\,\,\,\,\,\,\,\\
+\Phi_n(x_1)&=y_2
+\end{cases}
+\end{equation*}
+
+\begin{alertblock}{Make a computer search to get:}
+\begin{align*}
+\Di_1(\qe)&= (2,\pm 3)\times(1,1)\\
+\Di_2(\qe)&=(2,\pm 3)\times(2,3)\\
+\Di_{3^k}(\qe)&=(1,\pm 1)\times(2,3)\\
+\Di_{47^k}(\qe)&=(1,\pm 1)\times(13,47)\\
+\Di_{p^k}(\qe)&=\varnothing \text{ if $p\neq 3,47$ or $p=2$ and $k>1$}\\
+\Di_6(\qe)&=(1,\pm 1)\times(1,1)\text{ and }(2,\pm 3)\times(2,3)\\
+\Di_n(\qe)&=(1,\pm 1)\times(1,1)\text{ if $n\neq 6$ has at least two distinct prime factors.}
+\end{align*}
+\end{alertblock}
+\end{example}
+\end{frame}
+
+
+
+\end{document}
+
